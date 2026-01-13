@@ -1,59 +1,73 @@
 {% assign b = block.settings %}
-<div class="navbar-link-content">
-  <div class="container">
-    <div class="navbar-img-link-content">
-      <div class="navbar-img-link-content-left">
-        {% for link in b.menu.links %}
-          <div class="navbar-img-link-content-left-item">
-            <p class="navbar-img-link-content-left-item-title">{{ link.title }}</p>
-            <ul>
-              {% if link.links.size > 0 %}
-                {% for childLink in link.links %}
-                  <li>
-                    <a href="{{ childLink.url }}">{{ childLink.title }}</a>
-                  </li>
-                {% endfor %}
-              {% endif %}
-            </ul>
-          </div>
-        {% endfor %}
-      </div>
-      <div class="navbar-img-link-content-right">
-        {% if b.image != blank %}
-          <div class="navbar-img-card">
-            <div class="product-card">
-              <div class="card-image-wrap">
-                <div class="card-img">
-                  <a class="main-img" href="{{ b.url }}">
-                    {{ b.image | image_url: width: 300 | image_tag: class: 'card_img', alt: b.heading }}
-                  </a>
-                </div>
-              </div>
-              <div class="card-content">
-                <a href="{{ b.url }}" class="card-title">{{ b.heading }}</a>
-                <p class="card-subtitle">{{ b.text }}</p>
-              </div>
-            </div>
-          </div>
-        {% endif %}
 
-        {% if b.image_2 != blank %}
-          <div class="navbar-img-card">
-            <div class="product-card">
-              <div class="card-image-wrap">
-                <div class="card-img">
-                  <a class="main-img" href="{{ b.url_2 }}">
-                    {{ b.image_2 | image_url: width: 300 | image_tag: class: 'card_img', alt: b.heading_2 }}
+<div class="megamenu-wrapper">
+  <div class="container">
+    <div class="megamenu-items">
+      <div class="megamenu-item">
+        <div class="megamenu-link-wrapper">
+          {% for link in b.links %}
+            <div class="megamenu-links">
+              <h6 class="megamenu-links-title">{{ link.title }}</h6>
+              <ul>
+                {% if link.links.size > 1 %}
+                  {% for link in link.links %}
+                    <li>
+                      <a href="{{ link.url }}" class="nav-link-text">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                {% endif %}
+                <li>
+                  <a href="{{ link.url }}" class="nav-link-text"
+                    >Explore All<span class="icon">
+                      <svg
+                        width="8"
+                        height="14"
+                        viewBox="0 0 8 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M7.75 7L1.5 0.75L0.624999 1.625L6 7L0.625 12.375L1.5 13.25L7.75 7Z"
+                        	fill="black" />
+                      </svg>
+                    </span>
                   </a>
-                </div>
-              </div>
-              <div class="card-content">
-                <a href="{{ b.url_2 }}" class="card-title">{{ b.heading_2 }}</a>
-                <p class="card-subtitle">{{ b.text_2 }}</p>
-              </div>
+                </li>
+              </ul>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="megamenu-item megamenu-content-item">
+        <div class="megamenu-content-area">
+          <div class="megamenu-content">
+            <div class="megamenu-links">
+              <h6 class="megamenu-links-title">Featured</h6>
+              <ul>
+                <li><a href="#" class="nav-link-text">AHA BHA Rosewater Toner</a></li>
+                <li><a href="#" class="nav-link-text">Aloe Rose Refreshing Face Mist</a></li>
+                <li>
+                  <a href="#" class="nav-link-text"
+                    >Explore All<span class="icon">
+                      <svg
+                        width="8"
+                        height="14"
+                        viewBox="0 0 8 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M7.75 7L1.5 0.75L0.624999 1.625L6 7L0.625 12.375L1.5 13.25L7.75 7Z"
+                        	fill="black" />
+                      </svg>
+                    </span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-        {% endif %}
+          <a href="#" class="megamenu-content-img">
+            <img src="./assets/images/megamenu-item-bg.jpg" alt="megamenu-item-bg.jpg">
+          </a>
+        </div>
       </div>
     </div>
   </div>
