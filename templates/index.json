@@ -47,6 +47,71 @@
         "color_scheme": ""
       }
     },
+    "category_section_pnRgPC": {
+      "type": "category-section",
+      "blocks": {
+        "category_fadkRT": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img4.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "category_HHYNMt": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img3.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "category_zMDmfh": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img5.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "category_cyGhWg": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img4.webp",
+            "title": "",
+            "link": ""
+          }
+        },
+        "category_CU8aDe": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img1.webp",
+            "title": "Shirt",
+            "link": ""
+          }
+        },
+        "category_pXaEkj": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img2.webp",
+            "title": "Polo Shirt",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_fadkRT",
+        "category_HHYNMt",
+        "category_zMDmfh",
+        "category_cyGhWg",
+        "category_CU8aDe",
+        "category_pXaEkj"
+      ],
+      "name": "Category Section",
+      "settings": {
+        "color_scheme": ""
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -244,6 +309,7 @@
   },
   "order": [
     "hero_section_33QrDc",
+    "category_section_pnRgPC",
     "product_list_fa6P9H"
   ]
 }
