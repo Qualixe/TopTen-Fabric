@@ -13,6 +13,26 @@
   "sections": {
     "header_section": {
       "type": "header",
+      "blocks": {
+        "mega_menu_tHkRjp": {
+          "type": "mega_menu",
+          "settings": {
+            "link": "",
+            "menu": "main-menu",
+            "heading": "EXPLORE LATEST",
+            "text": "Featured Collection",
+            "url": "",
+            "heading_2": "EXPLORE LATEST",
+            "text_2": "Featured Collection",
+            "url_2": "",
+            "max_columns": 3,
+            "show_featured_products": true
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_tHkRjp"
+      ],
       "settings": {
         "logo": "shopify://shop_images/brand-logo.avif",
         "moible_number": "01708156699",
