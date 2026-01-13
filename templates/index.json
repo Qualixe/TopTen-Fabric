@@ -16,6 +16,7 @@
           "type": "hero_image",
           "settings": {
             "banner_desk": "shopify://shop_images/hero-slider-img_1.jpg",
+            "banner_mob": "shopify://shop_images/hero-slider-img_1.jpg",
             "Link": ""
           }
         }
