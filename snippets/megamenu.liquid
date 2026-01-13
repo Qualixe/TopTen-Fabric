@@ -71,9 +71,9 @@
               </ul>
             </div>
           </div>
-          {% if b.image_2 != blank %}
+          {% if b.image != blank %}
             <a href="{{ b.url_2 | default: '#' }}" class="megamenu-content-img">
-              {{ b.image_2 | image_url: width: 400 | image_tag: 
+              {{ b.image | image_url: width: 400 | image_tag: 
                  alt: b.image_2.alt | default: b.heading_2 | default: 'Featured image',
                  width: 400,
                  height: 300,
