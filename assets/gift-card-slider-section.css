@@ -1,0 +1,32 @@
+/* gift-card-slider section css start  */
+.section.gift-card-slider-section {
+    padding-bottom: 0;
+}
+
+.gift-card-slider-section .container{
+    max-width: 100%;
+}
+
+.gift-card-slider-item .product-card .card-image-wrap {
+    border-radius: 16px;
+}
+
+.gift-card-slider-item .product-card .card-image-wrap:before {
+    padding-bottom: 66%;
+}
+
+.gift-card-slider-item .product-card .card-image-wrap .card-badge {
+    background-color: var(--item-bg2);
+    border-radius: 20px;
+}
+
+/* gift-card-slider section css end  */
+
+@media only screen and (max-width: 992px) {
+
+    /* category-section css start */
+    .gift-card-slider-section  .container {
+        padding: 0 0 0 20px;
+    }
+    /* category-section css end */
+}

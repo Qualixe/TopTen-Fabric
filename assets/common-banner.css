@@ -1,0 +1,66 @@
+/* common-banner css start */
+.collection-page-banner {
+    background-image: url('../images/collection-banner-img.jpg');
+}
+
+.about-page-banner {
+    background-image: url('../images/about-common-banner-bg.jpg');
+}
+
+.contact-page-banner {
+    background-image: url('../images/contact-common-banner-bg.jpg');
+}
+
+.store-page-banner{
+    background-image: url('../images/store-page-banner-bg.jpg');
+}
+
+.blog-page-banner {
+    background-image: url('../images/blog-page-banner-bg.jpg');
+}
+
+.faq-page-banner {
+    background-image: url('../images/faq-page-banner-bg.jpg');
+}
+
+.common-banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: color;
+}
+
+.common-banner-content {
+    padding: 100px 0;
+}
+
+.common-banner-content .section-heading-wrapper {
+    margin: 0;
+}
+
+.common-banner-content .section-heading {
+    color: var(--white);
+}
+
+.common-banner-content .breadcrumb {
+    justify-content: center;
+    margin: 10px 0 0 0;
+}
+
+.common-banner-content .breadcrumb li a,
+.common-banner-content .breadcrumb li span {
+    color: var(--white);
+}
+
+.common-banner-content .breadcrumb li .breadcrumb-icon svg path {
+    fill: var(--white);
+}
+
+/* common-banner css end */
+
+@media only screen and (max-width: 575px) {
+    .common-banner-content {
+        padding: 50px 0;
+    }
+}

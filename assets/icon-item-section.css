@@ -1,0 +1,71 @@
+/* icon-item-section css start */
+.icon-item-section {
+    background: var(--section-bg);
+    padding: 50px 0;
+}
+
+.icon-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.icon-item {
+    text-align: center;
+}
+
+.icon-item .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 16px 0;
+}
+
+.icon-item-title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.icon-item-text {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+/* icon-item-section css end */
+
+@media only screen and (max-width: 992px) {
+
+    /* icon-item-section css end */
+    .icon-item-section {
+        padding: 35px 0;
+    }
+
+    /* icon-item-section css end */
+}
+
+@media only screen and (max-width: 575px) {
+
+    /* icon-item-section css end */
+    .icon-item-section {
+        padding: 25px 0;
+    }
+
+    .icon-items {
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 20px;
+        column-gap: 10px;
+    }
+
+    .icon-item .icon {
+        margin: 0 0 10px 0;
+    }
+
+    .icon-item-title {
+        font-size: 14px;
+    }
+
+    /* icon-item-section css end */
+}

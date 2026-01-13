@@ -1,0 +1,74 @@
+/* single-banner-section css start */
+.single-banner-section {
+    background-image: url('../images/single-banner-img.jpg');
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: color;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 850px;
+}
+
+.single-banner-section .container {
+    height: 100%;
+}
+
+.single-banner-content-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.single-banner-content {
+    max-width: 750px;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.single-banner-content-title {
+    color: var(--white);
+    font-size: clamp(28px, 4.1vw, 78px);
+    margin: 0 0 20px 0;
+}
+
+.single-banner-content .btn:hover {
+    border-color: var(--white);
+}
+
+.single-banner2-img {
+    display: block;
+    width: 100%;
+}
+
+/* single-banner-section css end */
+
+@media only screen and (max-width: 767px) {
+
+    /* single-banner-section css start */
+    .single-banner-section {
+        height: 550px;
+    }
+
+    .single-banner-content {
+        padding: 30px 0;
+    }
+
+    /* single-banner-section css end */
+}
+
+@media only screen and (max-width: 575px) {
+
+    /* single-banner-section css start */
+    .single-banner-section {
+        height: 350px;
+    }
+
+    .single-banner-content {
+        padding: 20px 0;
+    }
+
+    /* single-banner-section css end */
+
+}
