@@ -107,7 +107,7 @@
               </li>
               <li>
                 <span class="side-cart-btn side-cart-open-btn">
-                  <span class="cart-count">0</span>
+                  <span class="cart-count cart-item-count">{{ cart.item_count }}</span>
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -158,20 +158,8 @@
 
                 <li class="nav-link">
                   {% if has_mega_menu %}
-                    <span class="navbar-link-title">
-                      <span>{{ link.title }}</span>
-                      <span class="icon">
-                        <svg
-                          focusable="false"
-                          viewBox="0 0 16 14"
-                          width="10"
-                          height="10"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M.116 4.884l1.768-1.768L8 9.232l6.116-6.116 1.768 1.768L8 12.768.116 4.884z"></path>
-                        </svg>
-                      </span>
+                    <span class="nav-link-text">
+                      {{ link.title }}
                     </span>
                   {% else %}
                     <a href="{{ link.url }}" class="nav-link-text">
@@ -247,13 +235,13 @@
                     </svg>
                   </span>
                 </p>
-                
+
                 {% for block in section.blocks %}
                   {% assign block_title = block.settings.link | handleize %}
                   {% if title == block_title and block.type == 'mega_menu' %}
                     {% assign b = block.settings %}
                     {% assign menu = b.menu %}
-                    
+
                     <div class="megamenu-wrapper">
                       <div class="container">
                         <div class="megamenu-top">
@@ -287,7 +275,11 @@
                                   <ul>
                                     {% if category_link.links.size > 0 %}
                                       {% for child_link in category_link.links limit: 5 %}
-                                        <li><a href="{{ child_link.url }}" class="nav-link-text">{{ child_link.title }}</a></li>
+                                        <li>
+                                          <a href="{{ child_link.url }}" class="nav-link-text">
+                                            {{- child_link.title -}}
+                                          </a>
+                                        </li>
                                       {% endfor %}
                                     {% endif %}
                                     <li>
@@ -319,10 +311,14 @@
                                   <h6 class="megamenu-links-title">{{ b.heading | default: 'Featured' }}</h6>
                                   <ul>
                                     {% if b.text != blank %}
-                                      <li><a href="{{ b.url | default: '#' }}" class="nav-link-text">{{ b.text }}</a></li>
+                                      <li>
+                                        <a href="{{ b.url | default: '#' }}" class="nav-link-text">{{ b.text }}</a>
+                                      </li>
                                     {% endif %}
                                     {% if b.text_2 != blank %}
-                                      <li><a href="{{ b.url_2 | default: '#' }}" class="nav-link-text">{{ b.text_2 }}</a></li>
+                                      <li>
+                                        <a href="{{ b.url_2 | default: '#' }}" class="nav-link-text">{{ b.text_2 }}</a>
+                                      </li>
                                     {% endif %}
                                     <li>
                                       <a href="{{ b.url | default: '#' }}" class="nav-link-text">
@@ -346,11 +342,12 @@
                               </div>
                               {% if b.image_2 != blank %}
                                 <a href="{{ b.url_2 | default: '#' }}" class="megamenu-content-img">
-                                  {{ b.image_2 | image_url: width: 400 | image_tag: 
-                                     alt: b.image_2.alt | default: b.heading_2 | default: 'Featured image',
-                                     width: 400,
-                                     height: 300,
-                                     loading: 'lazy'
+                                  {{
+                                    b.image_2
+                                    | image_url: width: 400
+                                    | image_tag: alt: b.image_2.alt
+                                    | default: b.heading_2
+                                    | default: 'Featured image', width: 400, height: 300, loading: 'lazy'
                                   }}
                                 </a>
                               {% endif %}
