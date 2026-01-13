@@ -1,0 +1,60 @@
+{% assign b = block.settings %}
+<div class="navbar-link-content">
+  <div class="container">
+    <div class="navbar-img-link-content">
+      <div class="navbar-img-link-content-left">
+        {% for link in b.menu.links %}
+          <div class="navbar-img-link-content-left-item">
+            <p class="navbar-img-link-content-left-item-title">{{ link.title }}</p>
+            <ul>
+              {% if link.links.size > 0 %}
+                {% for childLink in link.links %}
+                  <li>
+                    <a href="{{ childLink.url }}">{{ childLink.title }}</a>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="navbar-img-link-content-right">
+        {% if b.image != blank %}
+          <div class="navbar-img-card">
+            <div class="product-card">
+              <div class="card-image-wrap">
+                <div class="card-img">
+                  <a class="main-img" href="{{ b.url }}">
+                    {{ b.image | image_url: width: 300 | image_tag: class: 'card_img', alt: b.heading }}
+                  </a>
+                </div>
+              </div>
+              <div class="card-content">
+                <a href="{{ b.url }}" class="card-title">{{ b.heading }}</a>
+                <p class="card-subtitle">{{ b.text }}</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
+        {% if b.image_2 != blank %}
+          <div class="navbar-img-card">
+            <div class="product-card">
+              <div class="card-image-wrap">
+                <div class="card-img">
+                  <a class="main-img" href="{{ b.url_2 }}">
+                    {{ b.image_2 | image_url: width: 300 | image_tag: class: 'card_img', alt: b.heading_2 }}
+                  </a>
+                </div>
+              </div>
+              <div class="card-content">
+                <a href="{{ b.url_2 }}" class="card-title">{{ b.heading_2 }}</a>
+                <p class="card-subtitle">{{ b.text_2 }}</p>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
