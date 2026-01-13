@@ -209,9 +209,6 @@
       </div>
       <div class="sidebar-content">
         <ul class="nav-links">
-          <li class="nav-link">
-            <a class="nav-link-text" href="{{routes.root_url }}">home</a>
-          </li>
           {% for link in section.settings.menu.links %}
             {% assign title = link.title | handleize %}
             {% assign has_mega_menu = false %}
