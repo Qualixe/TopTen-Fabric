@@ -47,6 +47,26 @@
         "color_scheme": ""
       }
     },
+    "category_section_pnRgPC": {
+      "type": "category-section",
+      "blocks": {
+        "category_CU8aDe": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img1.webp",
+            "title": "Shirt",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_CU8aDe"
+      ],
+      "name": "Category Section",
+      "settings": {
+        "color_scheme": ""
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -244,6 +264,7 @@
   },
   "order": [
     "hero_section_33QrDc",
+    "category_section_pnRgPC",
     "product_list_fa6P9H"
   ]
 }
