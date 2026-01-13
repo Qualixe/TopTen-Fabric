@@ -21,12 +21,9 @@
             "menu": "main-menu",
             "heading": "EXPLORE LATEST",
             "text": "Featured Collection",
-            "url": "",
-            "heading_2": "EXPLORE LATEST",
             "text_2": "Featured Collection",
-            "url_2": "",
-            "max_columns": 3,
-            "show_featured_products": true
+            "url": "",
+            "image": "shopify://shop_images/megamenu-item-bg.jpg"
           }
         }
       },
