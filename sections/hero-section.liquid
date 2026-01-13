@@ -1,0 +1,79 @@
+<section class="hero-slider-section">
+  <div class="swiper hero-slider">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        <div class="swiper-slide">
+          <a href="{{ b.url }}" class="slider-hero-item slider-hero-item1">
+            <style>
+              .slider-hero-item-{{ forloop.index }} {
+                background-image: url('{{ b.banner_desk  | image_url}}');
+              }
+
+              @media only screen and (max-width: 575px) {
+                .slider-hero-item{{ forloop.index }} {
+                  background-image: url('{{ b.banner_mob  | image_url}}');
+                }
+              }
+            </style>
+            <div class="slider-hero-overlay">
+              <div class="container">
+                <div class="hero-content-inner"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-pagination hero-pagination"></div>
+    <div class="swiper-button-prev hero-button-prev"></div>
+    <div class="swiper-button-next hero-button-next"></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color Scheme"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero_image",
+      "name": "Hero Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_desk",
+          "label": "Image for Desktop"
+        },
+        {
+          "type": "image_picker",
+          "id": "banner_mob",
+          "label": "Image for Mobile"
+        },
+        {
+          "type": "url",
+          "id": "Link",
+          "label": "Banner URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
