@@ -12,16 +12,34 @@
     "hero_section_33QrDc": {
       "type": "hero-section",
       "blocks": {
+        "hero_image_Hzf89N": {
+          "type": "hero_image",
+          "settings": {
+            "banner_desk": "shopify://shop_images/hero-slider-img_3.jpg",
+            "banner_mob": "shopify://shop_images/hero-slider-img_3.jpg",
+            "Link": "shopify://collections"
+          }
+        },
+        "hero_image_mCHefg": {
+          "type": "hero_image",
+          "settings": {
+            "banner_desk": "shopify://shop_images/hero-slider-img_2.jpg",
+            "banner_mob": "shopify://shop_images/hero-slider-img_2.jpg",
+            "Link": "shopify://collections/frontpage"
+          }
+        },
         "hero_image_af4dt8": {
           "type": "hero_image",
           "settings": {
             "banner_desk": "shopify://shop_images/hero-slider-img_1.jpg",
             "banner_mob": "shopify://shop_images/hero-slider-img_1.jpg",
-            "Link": ""
+            "Link": "shopify://collections"
           }
         }
       },
       "block_order": [
+        "hero_image_Hzf89N",
+        "hero_image_mCHefg",
         "hero_image_af4dt8"
       ],
       "name": "Hero Section",
