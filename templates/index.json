@@ -50,6 +50,14 @@
     "category_section_pnRgPC": {
       "type": "category-section",
       "blocks": {
+        "category_pXaEkj": {
+          "type": "category",
+          "settings": {
+            "image": "shopify://shop_images/category-img2.webp",
+            "title": "",
+            "link": ""
+          }
+        },
         "category_CU8aDe": {
           "type": "category",
           "settings": {
@@ -60,6 +68,7 @@
         }
       },
       "block_order": [
+        "category_pXaEkj",
         "category_CU8aDe"
       ],
       "name": "Category Section",
