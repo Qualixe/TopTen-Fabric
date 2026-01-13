@@ -4,7 +4,7 @@
       {% for block in section.blocks %}
         {% assign b = block.settings %}
         <div class="swiper-slide">
-          <a href="{{ b.url }}" class="slider-hero-item slider-hero-item1">
+          <a href="{{ b.url }}" class="slider-hero-item slider-hero-item{{ forloop.index }}">
             <style>
               .slider-hero-item-{{ forloop.index }} {
                 background-image: url('{{ b.banner_desk  | image_url}}');
