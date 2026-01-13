@@ -1,4 +1,4 @@
-<section class="hero-slider-section">
+<section class="hero-slider-section color-{{ section.settings.color_scheme }}">
   <div class="swiper hero-slider">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
@@ -6,7 +6,7 @@
         <div class="swiper-slide">
           <a href="{{ b.url }}" class="slider-hero-item slider-hero-item{{ forloop.index }}">
             <style>
-              .slider-hero-item-{{ forloop.index }} {
+              .slider-hero-item{{ forloop.index }} {
                 background-image: url('{{ b.banner_desk  | image_url}}');
               }
 
