@@ -1,0 +1,76 @@
+<section class="section category-sectio color-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="category-slider-area">
+      <div class="swiper category-slider">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              <div class="category-item">
+                <div class="product-card">
+                  <div class="card-image-wrap">
+                    <div class="card-img">
+                      <a class="main-img" href="{{ block.settings.link }}">
+                        {% if block.settings.image != blank %}
+                          {{ block.settings.image | image_url: width: 1000 | image_tag }}
+                        {% endif %}
+                      </a>
+                    </div>
+                    <a href="{{ block.settings.link }}" class="card-content">
+                      <h5 class="img-card-content-title">{{ block.settings.title }}</h5>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-prev category-slider-button-prev"></div>
+        <div class="swiper-button-next category-slider-button-next"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "category",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Category Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Section"
+    }
+  ]
+}
+{% endschema %}
