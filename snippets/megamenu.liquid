@@ -1,24 +1,26 @@
 {% assign b = block.settings %}
+{% assign menu = b.menu %}
 
 <div class="megamenu-wrapper">
   <div class="container">
     <div class="megamenu-items">
       <div class="megamenu-item">
         <div class="megamenu-link-wrapper">
-          {% for link in b.links %}
+          {% for link in menu.links limit: 3 %}
             <div class="megamenu-links">
               <h6 class="megamenu-links-title">{{ link.title }}</h6>
               <ul>
-                {% if link.links.size > 1 %}
-                  {% for link in link.links %}
+                {% if link.links.size > 0 %}
+                  {% for child_link in link.links limit: 8 %}
                     <li>
-                      <a href="{{ link.url }}" class="nav-link-text">{{ link.title }}</a>
+                      <a href="{{ child_link.url }}" class="nav-link-text">{{ child_link.title }}</a>
                     </li>
                   {% endfor %}
                 {% endif %}
                 <li>
-                  <a href="{{ link.url }}" class="nav-link-text"
-                    >Explore All<span class="icon">
+                  <a href="{{ link.url }}" class="nav-link-text">
+                    Explore All
+                    <span class="icon">
                       <svg
                         width="8"
                         height="14"
@@ -41,13 +43,18 @@
         <div class="megamenu-content-area">
           <div class="megamenu-content">
             <div class="megamenu-links">
-              <h6 class="megamenu-links-title">Featured</h6>
+              <h6 class="megamenu-links-title">{{ b.heading | default: 'Featured' }}</h6>
               <ul>
-                <li><a href="#" class="nav-link-text">AHA BHA Rosewater Toner</a></li>
-                <li><a href="#" class="nav-link-text">Aloe Rose Refreshing Face Mist</a></li>
+                {% if b.text != blank %}
+                  <li><a href="{{ b.url | default: '#' }}" class="nav-link-text">{{ b.text }}</a></li>
+                {% endif %}
+                {% if b.text_2 != blank %}
+                  <li><a href="{{ b.url_2 | default: '#' }}" class="nav-link-text">{{ b.text_2 }}</a></li>
+                {% endif %}
                 <li>
-                  <a href="#" class="nav-link-text"
-                    >Explore All<span class="icon">
+                  <a href="{{ b.url | default: '#' }}" class="nav-link-text">
+                    Explore All
+                    <span class="icon">
                       <svg
                         width="8"
                         height="14"
@@ -64,9 +71,16 @@
               </ul>
             </div>
           </div>
-          <a href="#" class="megamenu-content-img">
-            <img src="./assets/images/megamenu-item-bg.jpg" alt="megamenu-item-bg.jpg">
-          </a>
+          {% if b.image_2 != blank %}
+            <a href="{{ b.url_2 | default: '#' }}" class="megamenu-content-img">
+              {{ b.image_2 | image_url: width: 400 | image_tag: 
+                 alt: b.image_2.alt | default: b.heading_2 | default: 'Featured image',
+                 width: 400,
+                 height: 300,
+                 loading: 'lazy'
+              }}
+            </a>
+          {% endif %}
         </div>
       </div>
     </div>
