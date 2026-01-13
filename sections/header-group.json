@@ -11,11 +11,15 @@
   "type": "header",
   "name": "Header",
   "sections": {
-
-
     "header_section": {
       "type": "header",
-
+      "settings": {
+        "logo": "shopify://shop_images/brand-logo.avif",
+        "moible_number": "01708156699",
+        "menu": "main-menu",
+        "color_scheme": "",
+        "enable_sticky_header": true
+      }
     }
   },
   "order": [
