@@ -11,7 +11,7 @@
           {{ product.images[1] | image_url: width: 1000 | image_tag }}
         </a>
       {% endif %}
-      {% if !product.available %}
+      {% if product.available == false %}
         <span class="card-badge">out of stock</span>
       {% elsif product.compare_at_price > product.price %}
         <span class="card-badge">save: {{ product.compare_at_price | minus: product.price | money }} </span>
