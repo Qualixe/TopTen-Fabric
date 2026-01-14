@@ -51,6 +51,18 @@
     },
     "footer_m9NzUG": {
       "type": "footer",
+      "blocks": {
+        "logo_zRRqTc": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/brand-logo.avif",
+            "text": "BDcloth was founded in 2024."
+          }
+        }
+      },
+      "block_order": [
+        "logo_zRRqTc"
+      ],
       "name": "t:names.footer",
       "settings": {
         "copyright": "© Copyright Reserved to Perocili",
