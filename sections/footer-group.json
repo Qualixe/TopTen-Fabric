@@ -76,10 +76,10 @@
         "contact_mti8BM": {
           "type": "contact",
           "settings": {
-            "heading": "Follow us",
+            "heading": "Contact us",
             "text": "",
-            "phone": "<strong>phone:</strong>1-833-428-8824",
-            "email": "<strong>Email:</strong>info@bdcloth.com",
+            "phone": "phone:1-833-428-8824",
+            "email": "Email:info@bdcloth.com",
             "social": true
           }
         }
