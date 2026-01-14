@@ -149,12 +149,22 @@
       "settings": {
         "color_scheme": ""
       }
+    },
+    "featured_collection_L7XxEB": {
+      "type": "featured-collection",
+      "name": "Featured Collection",
+      "settings": {
+        "title": "Winter collections",
+        "collection": "kids",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "hero_section_33QrDc",
     "category_section_pnRgPC",
     "featured_collection_PwEhMT",
-    "grid_category_GCaz6T"
+    "grid_category_GCaz6T",
+    "featured_collection_L7XxEB"
   ]
 }
