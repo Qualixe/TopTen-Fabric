@@ -34,14 +34,11 @@
 
     <!-- Pagination -->
 
-    <!-- View All Button (Enable / Disable) -->
-    {% if s.enable_view_all and s.blog != blank %}
-      <div class="section-btn">
-        <a href="{{ s.blog.url }}" class="btn primary-btn">
-          {{ s.btn_text }}
-        </a>
-      </div>
-    {% endif %}
+    <div class="section-btn">
+      <a href="{{ s.blog.url }}" class="btn primary-btn">
+        {{ s.btn_text }}
+      </a>
+    </div>
   </div>
 </section>
 
