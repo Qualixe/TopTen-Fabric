@@ -1,0 +1,113 @@
+<div class="filter-accordion-items">
+  <input type="hidden" class="collection_name" value="{{ results.handle }}">
+  {%- for filter in results.filters -%}
+    {% case filter.type %}
+      {% when 'boolean', 'list' %}
+        <div class="filter-accordion-item active">
+          <div class="item-title-wrapper accordion-toggle-btn">
+            <h6 class="item-title">{{ filter.label | escape }}</h6>
+            <span class="icon">
+              <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                    fill="currentColor">
+                </path>
+              </svg>
+            </span>
+          </div>
+
+          <div class="filter-accordion-item-content">
+            <div class="filter-options-wrapper">
+              {%- liquid
+                assign sorted_values = filter.values
+                # Keep the selected values grouped together when operator is AND
+                if filter.operator == 'AND'
+                  assign active_filter_values = filter.values | where: 'active', true
+                  assign inactive_filter_values = filter.values | where: 'active', false
+                  assign sorted_values = active_filter_values | concat: inactive_filter_values
+                endif
+              -%}
+              {%- for value in sorted_values -%}
+                {% liquid
+                  assign is_disabled = false
+                  if value.count == 0 and value.active == false
+                    assign is_disabled = true
+                  endif
+                %}
+                <div class="filter-options">
+                  <div class="filter-option{% if filter.label contains 'Colour'  %} color-{{ value.label |  handleize }}{% endif %}">
+                    <input
+                      class="filter-item-checkbox"
+                      type="checkbox"
+                      name="{{ value.label |  handleize }}"
+                      value="{{ value.value | replace: " ", "+" }}"
+                      onclick="filterCheck()"
+                      data-option="{{ value.param_name }}"
+                      id="filter-{{ filter.label | handleize }}-{{ forloop.index }}"
+                      {% if value.active %}
+                        checked
+                      {% endif %}
+                      {% if is_disabled %}
+                        disabled
+                      {% endif %}
+                    >
+                    <label
+                      for="filter-{{ filter.label | handleize }}-{{ forloop.index }}"
+                      class="filter_item_label{% if is_disabled %} disabled{% endif %} {% if value.active %} active{% endif %}"
+                    >
+                      {{- value.label | escape -}}
+                    </label>
+                  </div>
+                  <span class="filter-item-number">{{ value.count }}</span>
+                  {% if filter.label contains 'Colour' %}
+                    {% style %}
+                      .color-{{ value.label |  handleize }} label::before {
+                          background-color: {{ value.label |  handleize }} ;
+                      }
+                    {% endstyle %}
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% when 'price_range' %}
+        <div class="filter-accordion-item active">
+          <div class="item-title-wrapper accordion-toggle-btn">
+            <h6 class="item-title">{{ filter.label }}</h6>
+            <span class="icon">
+              <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                    fill="currentColor">
+                </path>
+              </svg>
+            </span>
+          </div>
+
+          <div class="filter-accordion-item-content">
+            <div class="filter-price-range-wrap">
+              <div class="price-range-field">
+                <input
+                  type="number"
+                  class="price-min"
+                  placeholder="Min"
+                  value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                >
+              </div>
+              <div class="price-range-field">
+                <input
+                  type="number"
+                  class="price-max"
+                  placeholder="Max"
+                  value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                >
+              </div>
+
+              <button type="button" class="price-filter-btn">Apply</button>
+            </div>
+          </div>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>

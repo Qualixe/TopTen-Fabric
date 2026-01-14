@@ -1,0 +1,164 @@
+<script src="{{ 'ajaxinate.js' | asset_url }}" defer></script>
+
+<section class="section collection-section">
+  <div class="container">
+    <div class="collection-wrapper">
+      <div class="collection-filter">
+        <span class="filter-window-close-btn"></span>
+        <div class="filter-box">
+          <h6 class="filter-sidebar-heading">
+            Filter
+            <span class="filter-close-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 15L15 3" stroke="#232323" stroke-width="1.5" stroke-linecap="round"
+                	stroke-linejoin="round">
+                </path>
+                <path d="M15 15L3 3" stroke="#232323" stroke-width="1.5" stroke-linecap="round"
+                	stroke-linejoin="round">
+                </path>
+              </svg>
+            </span>
+          </h6>
+          <div class="filter-accordion">
+            {% render 'filter', results: collection %}
+          </div>
+        </div>
+      </div>
+      <div class="collection-content">
+        <div class="collection-top">
+          <div class="collection-filter-btn">
+            <span class="filter-open-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="Layer_2"
+                data-name="Layer 2"
+                viewBox="0 0 19.61 18.75"
+                style="fill: #fff; width: 20px;"
+              >
+                <g id="Layer_1-2" data-name="Layer 1">
+                	<g>
+                		<path
+                			d="M0,2.89c0,.23.18.41.41.41h3.73c.32,1.04,1.28,1.81,2.43,1.81s2.11-.76,2.43-1.81h10.2c.23,0,.41-.18.41-.41v-.68c0-.23-.18-.41-.41-.41h-10.2c-.32-1.04-1.28-1.81-2.43-1.81s-2.11.76-2.43,1.81H.41c-.23,0-.41.18-.41.41v.68ZM6.57,1.5c.58,0,1.06.47,1.06,1.06s-.47,1.06-1.06,1.06-1.06-.47-1.06-1.06.47-1.06,1.06-1.06Z">
+                		</path>
+                		<path
+                			d="M.41,10.12h9.08c.32,1.04,1.28,1.81,2.43,1.81s2.11-.76,2.43-1.81h4.85c.23,0,.41-.18.41-.41v-.68c0-.23-.18-.41-.41-.41h-4.85c-.32-1.04-1.28-1.81-2.43-1.81s-2.11.76-2.43,1.81H.41c-.23,0-.41.18-.41.41v.68c0,.23.18.41.41.41ZM11.92,8.32c.58,0,1.06.47,1.06,1.06s-.47,1.06-1.06,1.06-1.06-.47-1.06-1.06.47-1.06,1.06-1.06Z">
+                		</path>
+                		<path
+                			d="M19.61,15.85c0-.23-.18-.41-.41-.41h-10.2c-.32-1.04-1.28-1.81-2.43-1.81s-2.11.76-2.43,1.81H.41c-.23,0-.41.18-.41.41v.68c0,.23.18.41.41.41h3.73c.32,1.04,1.28,1.81,2.43,1.81s2.11-.76,2.43-1.81h10.2c.23,0,.41-.18.41-.41v-.68ZM6.57,17.25c-.58,0-1.06-.47-1.06-1.06s.47-1.06,1.06-1.06,1.06.47,1.06,1.06-.47,1.06-1.06,1.06Z">
+                		</path>
+                	</g>
+                </g>
+              </svg>
+              Filter
+            </span>
+            <p class="collection-product-count">{{ collection.all_products_count }} products</p>
+          </div>
+          <div class="filter-select-field">
+            <select name="sort_by" id="sort_by" class="select_sort">
+              {%- assign current_sort_by = collection.sort_by | default: collection.default_sort_by -%}
+              {%- for option in collection.sort_options -%}
+                <option
+                  value="{{ option.value | escape }}"
+                  {% if option.value == current_sort_by %}
+                    selected
+                  {% endif %}
+                >
+                  {{ option.name | escape }}
+                </option>
+              {%- endfor -%}
+            </select>
+
+            <span class="filter-select-field-icon">
+              <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                    fill="currentColor">
+                </path>
+              </svg>
+            </span>
+          </div>
+        </div>
+        {% paginate collection.products by section.settings.products_per_page %}
+          <div class="collection-product-wrap">
+            {%- if collection.products.size > 0 -%}
+              <div class="product-items collection-products">
+                {% for product in collection.products %}
+                  <div class="product-item">
+                    {% render 'card-product', product: product %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <div class="collection-empty">
+                <h2>No result found!</h2>
+              </div>
+            {%- endif -%}
+
+            {%- if paginate.pages > 1 -%}
+              <div class="pagination">
+                {%- if paginate.previous -%}
+                  <a href="{{ paginate.previous.url }}">
+                    <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                        fill="currentColor" transform="rotate(90 5 3)">
+                      </path>
+                    </svg>
+                  </a>
+                {%- endif -%}
+
+                {%- for part in paginate.parts -%}
+                  {%- if part.is_link -%}
+                    <a href="{{ part.url }}">{{ part.title }}</a>
+                  {%- else -%}
+                    {%- if part.title == paginate.current_page -%}
+                      <a href="#" class="active">{{ part.title }}</a>
+                    {%- else -%}
+                      <span>{{ part.title }}</span>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+
+                {%- if paginate.next -%}
+                  <a href="{{ paginate.next.url }}">
+                    <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                        fill="currentColor" transform="rotate(-90 5 3)">
+                      </path>
+                    </svg>
+                  </a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {% endpaginate %}
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Ajaxinate({
+      container: '.collection-products', // card container
+    });
+    console.log('worked');
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collection pages",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 16,
+      "label": "Products per page"
+    }
+  ]
+}
+{% endschema %}
