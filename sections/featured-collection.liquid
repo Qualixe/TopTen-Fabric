@@ -1,0 +1,48 @@
+<section class="section card-slider-section">
+  <div class="container">
+    <div class="card-slider-wrapper">
+      <div class="section-heading-wrapper">
+        <h2 class="section-heading">{{ section.settings.title }}</h2>
+      </div>
+      <div class="swiper card-slider">
+        <div class="swiper-wrapper">
+          {% for product in section.settings.collection.products %}
+            <div class="swiper-slide">
+              <div class="card-slider-item">
+                {% render 'card-product', product: product %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-prev card-slider-button-prev"></div>
+        <div class="swiper-button-next card-slider-button-next"></div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

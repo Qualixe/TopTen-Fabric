@@ -1,0 +1,23 @@
+<div class="product-card card_hover">
+  <div class="card-image-wrap">
+    <div class="card-img">
+      {% if product.featured_image != blank %}
+        <a class="main-img" href="{{ product.url }}">
+          {{ product.featured_image | image_url: width: 1000 | image_tag }}
+        </a>
+      {% endif %}
+      {% if product.images[1] != blank %}
+        <a class="hover-img" href="{{ product.url }}">
+          {{ product.images[1] | image_url: width: 1000 | image_tag }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  <div class="card-content">
+    <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+    <div class="card-price-wrap">
+      <p class="latest-price">{{ product.price | money }}</p>
+      <p class="previous-price">{{ product.compare_at_price | money }}</p>
+    </div>
+  </div>
+</div>
