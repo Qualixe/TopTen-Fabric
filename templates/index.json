@@ -117,13 +117,44 @@
       "name": "Featured Collection",
       "settings": {
         "title": "NEW ARRIVAL",
-        "collection": "frontpage"
+        "collection": "frontpage",
+        "color_scheme": ""
+      }
+    },
+    "grid_category_GCaz6T": {
+      "type": "grid-category",
+      "blocks": {
+        "category_PHhpL7": {
+          "type": "Category",
+          "settings": {
+            "image": "shopify://shop_images/grid-category-img1.jpg",
+            "title": "Ready to Wear",
+            "link": "shopify://collections/frontpage"
+          }
+        },
+        "category_gjAGdE": {
+          "type": "Category",
+          "settings": {
+            "image": "shopify://shop_images/grid-category-img2.jpg",
+            "title": "UNSTITCHED",
+            "link": "shopify://collections/woman"
+          }
+        }
+      },
+      "block_order": [
+        "category_PHhpL7",
+        "category_gjAGdE"
+      ],
+      "name": "Grid Category",
+      "settings": {
+        "color_scheme": ""
       }
     }
   },
   "order": [
     "hero_section_33QrDc",
     "category_section_pnRgPC",
-    "featured_collection_PwEhMT"
+    "featured_collection_PwEhMT",
+    "grid_category_GCaz6T"
   ]
 }
