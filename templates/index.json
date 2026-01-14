@@ -168,6 +168,17 @@
         "button_link": "shopify://collections/frontpage",
         "button_text": "shop now"
       }
+    },
+    "blog_icRG7t": {
+      "type": "blog",
+      "name": "Blogs Section",
+      "settings": {
+        "heading": "From the Journal",
+        "sub_heading": "Discover Stories, Ideas, and Insights That Inspire Curiosity and Creativity",
+        "blog": "news",
+        "btn_text": "View More",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
@@ -176,6 +187,7 @@
     "featured_collection_PwEhMT",
     "grid_category_GCaz6T",
     "featured_collection_L7XxEB",
-    "single_banner_section_Lj8ypH"
+    "single_banner_section_Lj8ypH",
+    "blog_icRG7t"
   ]
 }
