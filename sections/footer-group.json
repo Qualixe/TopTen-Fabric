@@ -56,12 +56,28 @@
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/brand-logo.avif",
-            "text": "BDcloth was founded in 2024."
+            "text": "BDcloth was founded in 2024. <br> <br>\nWe unite the best of nature and science in highly effective products for both women and men, formulated to reveal more radiant results."
+          }
+        },
+        "menu_3YC8ak": {
+          "type": "menu",
+          "settings": {
+            "heading": "Company Info",
+            "menu": "footer"
+          }
+        },
+        "menu_UjpVmn": {
+          "type": "menu",
+          "settings": {
+            "heading": "Support",
+            "menu": "footer"
           }
         }
       },
       "block_order": [
-        "logo_zRRqTc"
+        "logo_zRRqTc",
+        "menu_3YC8ak",
+        "menu_UjpVmn"
       ],
       "name": "t:names.footer",
       "settings": {
