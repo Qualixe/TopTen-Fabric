@@ -3,10 +3,12 @@
     <div class="single-banner-content-wrap">
       <div class="single-banner-content">
         <h2 class="single-banner-content-title">{{ section.settings.title }}</h2>
-        <a href="{{ section.settings.button_link }}" class="btn secondary-btn">
-          {{- section.settings.button_text -}}
-          <span></span
-        ></a>
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link }}" class="btn secondary-btn">
+            {{- section.settings.button_text -}}
+            <span></span
+          ></a>
+        {% endif %}
       </div>
     </div>
   </div>
