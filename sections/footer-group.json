@@ -72,17 +72,28 @@
             "heading": "Support",
             "menu": "footer"
           }
+        },
+        "contact_mti8BM": {
+          "type": "contact",
+          "settings": {
+            "heading": "Follow us",
+            "text": "FOR ANY HELP YOU MAY CALL US AT",
+            "phone": "011 615 6505",
+            "email": "",
+            "social": true
+          }
         }
       },
       "block_order": [
         "logo_zRRqTc",
         "menu_3YC8ak",
-        "menu_UjpVmn"
+        "menu_UjpVmn",
+        "contact_mti8BM"
       ],
       "name": "t:names.footer",
       "settings": {
         "copyright": "© Copyright Reserved to Perocili",
-        "use_dynamic_payments": true,
+        "use_dynamic_payments": false,
         "payment_icon": "",
         "color_scheme": "scheme-1"
       }
