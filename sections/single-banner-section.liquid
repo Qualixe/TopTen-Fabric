@@ -1,0 +1,58 @@
+<section class="single-banner-section color-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="single-banner-content-wrap">
+      <div class="single-banner-content">
+        <h2 class="single-banner-content-title">{{ section.settings.title }}</h2>
+        <a href="{{ section.settings.button_link }}" class="btn secondary-btn">
+          {{- section.settings.button_text -}}
+          <span></span
+        ></a>
+      </div>
+    </div>
+  </div>
+</section>
+{% style %}
+  .single-banner-section {
+    background-image: url('{{ section.settings.image | image_url: width: 1000 }}');
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Single Banner Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    }
+  ]
+}
+{% endschema %}
