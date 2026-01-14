@@ -92,7 +92,7 @@
       ],
       "name": "t:names.footer",
       "settings": {
-        "copyright": "© Copyright Reserved to Perocili",
+        "copyright": "© Copyright Reserved to <a href=\"https://topten-fabrics.netlify.app/#\"><strong>BDcloth</strong></a> & made by <a href=\"https://qualixe.com/\"><strong>qualixe</strong></a>.",
         "use_dynamic_payments": false,
         "payment_icon": "",
         "color_scheme": "scheme-1"
