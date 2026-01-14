@@ -98,7 +98,7 @@
       }
     },
     "main": {
-      "type": "main-collections",
+      "type": "main-collection",
       "blocks": {
         "filters": {
           "type": "filters",
