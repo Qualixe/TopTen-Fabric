@@ -55,7 +55,7 @@
           "settings": {
             "image": "shopify://shop_images/category-img4.webp",
             "title": "T shirt",
-            "link": ""
+            "link": "shopify://collections/man"
           }
         },
         "category_HHYNMt": {
@@ -63,7 +63,7 @@
           "settings": {
             "image": "shopify://shop_images/category-img3.webp",
             "title": "Panjabi",
-            "link": ""
+            "link": "shopify://products/mens-regular-fit-shirt-1"
           }
         },
         "category_zMDmfh": {
@@ -71,7 +71,7 @@
           "settings": {
             "image": "shopify://shop_images/category-img5.webp",
             "title": "Shirt",
-            "link": ""
+            "link": "shopify://products/mens-regular-fit-shirt-1"
           }
         },
         "category_cyGhWg": {
