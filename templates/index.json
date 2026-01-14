@@ -140,6 +140,15 @@
         "button_text": "shop now"
       }
     },
+    "gift_card_slider_ch6Gkj": {
+      "type": "gift-card-slider",
+      "name": "Gift Card Slider",
+      "settings": {
+        "title": "Gift Card",
+        "collection": "gift-cards",
+        "color_scheme": ""
+      }
+    },
     "blog_icRG7t": {
       "type": "blog",
       "name": "Blogs Section",
@@ -150,15 +159,6 @@
         "btn_text": "View More",
         "color_scheme": ""
       }
-    },
-    "gift_card_slider_ch6Gkj": {
-      "type": "gift-card-slider",
-      "name": "Gift Card Slider",
-      "settings": {
-        "title": "Gift Card",
-        "collection": "gift-cards",
-        "color_scheme": ""
-      }
     }
   },
   "order": [
@@ -167,7 +167,7 @@
     "featured_collection_PwEhMT",
     "featured_collection_L7XxEB",
     "single_banner_section_Lj8ypH",
-    "blog_icRG7t",
-    "gift_card_slider_ch6Gkj"
+    "gift_card_slider_ch6Gkj",
+    "blog_icRG7t"
   ]
 }
