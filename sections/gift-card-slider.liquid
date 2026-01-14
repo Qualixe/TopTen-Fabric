@@ -13,18 +13,20 @@
                   <div class="card-image-wrap">
                     <div class="card-img">
                       {% if product.featured_image != blank %}
-                        {{ product.featured_image | image_url: width: 1000 | image_tag }}
+                        <a class="main-img" href="{{ product.url }}">
+                          {{ product.featured_image | image_url: width: 1000 | image_tag }}
+                        </a>
                       {% endif %}
                     </div>
+                    {% if product.available == false %}
+                      <span class="card-badge">sold out</span>
+                    {% endif %}
                   </div>
-                  {% if product.available == false %}
-                    <span class="card-badge">sold out</span>
-                  {% endif %}
-                </div>
-                <div class="card-content">
-                  <a href="#" class="card-title">{{ product.title }}</a>
-                  <div class="card-price-wrap">
-                    <p class="latest-price">{{ product.price | money }}</p>
+                  <div class="card-content">
+                    <a href="{{ product.url }}" class="card-title">{{ product.title }}</a>
+                    <div class="card-price-wrap">
+                      <p class="latest-price">{{ product.price | money }}</p>
+                    </div>
                   </div>
                 </div>
               </div>
