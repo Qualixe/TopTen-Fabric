@@ -2,27 +2,29 @@
   <div class="container">
     <div class="card-slider-wrapper">
       <div class="section-heading-wrapper">
-        <h2 class="section-heading">gift card</h2>
+        <h2 class="section-heading">{{ section.settings.title }}</h2>
       </div>
       <div class="swiper gift-card-slider">
         <div class="swiper-wrapper">
-          {% for block in section.blocks %}
+          {% for product in section.settings.collection.products %}
             <div class="swiper-slide">
               <div class="gift-card-slider-item">
                 <div class="product-card">
                   <div class="card-image-wrap">
                     <div class="card-img">
-                      {% if block.settings.image != blank %}
-                        {{ block.settings.image | image_url: width: 1000 | image_tag }}
+                      {% if product.image != blank %}
+                        {{ product.image | image_url: width: 1000 | image_tag }}
                       {% endif %}
                     </div>
                   </div>
-                  <span class="card-badge">sold out</span>
+                  {% if product.available == false %}
+                    <span class="card-badge">sold out</span>
+                  {% endif %}
                 </div>
                 <div class="card-content">
-                  <a href="#" class="card-title">{{ block.settings.title }}</a>
+                  <a href="#" class="card-title">{{ product.title }}</a>
                   <div class="card-price-wrap">
-                    <p class="latest-price">{{ block.settings.price | money }}</p>
+                    <p class="latest-price">{{ product.price | money }}</p>
                   </div>
                 </div>
               </div>
@@ -47,6 +49,11 @@
       "default": "Gift Card"
     },
     {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
       "type": "header",
       "content": "Color"
     },
@@ -54,29 +61,6 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color Scheme"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "gift_card",
-      "name": "Gift Card",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        }
-      ]
     }
   ],
   "presets": [
