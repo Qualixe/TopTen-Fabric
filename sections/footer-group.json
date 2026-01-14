@@ -56,7 +56,7 @@
           "type": "logo",
           "settings": {
             "logo": "shopify://shop_images/brand-logo.avif",
-            "text": "BDcloth was founded in 2024. <br> <br>\nWe unite the best of nature and science in highly effective products for both women and men, formulated to reveal more radiant results."
+            "text": "<strong>BDcloth was founded in 2024.</strong> <br> <br>\nWe unite the best of nature and science in highly effective products for both women and men, formulated to reveal more radiant results."
           }
         },
         "menu_3YC8ak": {
@@ -77,9 +77,9 @@
           "type": "contact",
           "settings": {
             "heading": "Follow us",
-            "text": "FOR ANY HELP YOU MAY CALL US AT",
-            "phone": "011 615 6505",
-            "email": "",
+            "text": "",
+            "phone": "<strong>phone:</strong>1-833-428-8824",
+            "email": "<strong>Email:</strong>info@bdcloth.com",
             "social": true
           }
         }
