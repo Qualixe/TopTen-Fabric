@@ -1,0 +1,88 @@
+<section class="section gift-card-slider-section">
+  <div class="container">
+    <div class="card-slider-wrapper">
+      <div class="section-heading-wrapper">
+        <h2 class="section-heading">gift card</h2>
+      </div>
+      <div class="swiper gift-card-slider">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide">
+              <div class="gift-card-slider-item">
+                <div class="product-card">
+                  <div class="card-image-wrap">
+                    <div class="card-img">
+                      {% if block.settings.image != blank %}
+                        {{ block.settings.image | image_url: width: 1000 | image_tag }}
+                      {% endif %}
+                    </div>
+                  </div>
+                  <span class="card-badge">sold out</span>
+                </div>
+                <div class="card-content">
+                  <a href="#" class="card-title">{{ block.settings.title }}</a>
+                  <div class="card-price-wrap">
+                    <p class="latest-price">{{ block.settings.price | money }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-button-prev gift-card-slider-button-prev"></div>
+        <div class="swiper-button-next gift-card-slider-button-next"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gift Card Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Gift Card"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "gift_card",
+      "name": "Gift Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gift Card Slider"
+    }
+  ]
+}
+{% endschema %}
