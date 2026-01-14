@@ -151,11 +151,11 @@
         "color_scheme": ""
       }
     },
-    "featured_collection_kNAY7R": {
-      "type": "featured-collection",
-      "name": "Featured Collection",
+    "gift_card_slider_ch6Gkj": {
+      "type": "gift-card-slider",
+      "name": "Gift Card Slider",
       "settings": {
-        "title": "",
+        "title": "Gift Card",
         "collection": "gift-cards",
         "color_scheme": ""
       }
@@ -168,6 +168,6 @@
     "featured_collection_L7XxEB",
     "single_banner_section_Lj8ypH",
     "blog_icRG7t",
-    "featured_collection_kNAY7R"
+    "gift_card_slider_ch6Gkj"
   ]
 }
