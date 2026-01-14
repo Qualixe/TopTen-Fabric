@@ -155,7 +155,7 @@
       "name": "Featured Collection",
       "settings": {
         "title": "Winter collections",
-        "collection": "kids",
+        "collection": "frontpage",
         "color_scheme": ""
       }
     }
