@@ -158,6 +158,16 @@
         "collection": "frontpage",
         "color_scheme": ""
       }
+    },
+    "single_banner_section_Lj8ypH": {
+      "type": "single-banner-section",
+      "name": "Single Banner",
+      "settings": {
+        "image": "shopify://shop_images/single-banner-img.jpg",
+        "title": "The Art of fashion",
+        "button_link": "shopify://collections/frontpage",
+        "button_text": "shop now"
+      }
     }
   },
   "order": [
@@ -165,6 +175,7 @@
     "category_section_pnRgPC",
     "featured_collection_PwEhMT",
     "grid_category_GCaz6T",
-    "featured_collection_L7XxEB"
+    "featured_collection_L7XxEB",
+    "single_banner_section_Lj8ypH"
   ]
 }
