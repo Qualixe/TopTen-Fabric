@@ -87,7 +87,7 @@
           "settings": {
             "image": "shopify://shop_images/category-img1.webp",
             "title": "Shirt",
-            "link": ""
+            "link": "shopify://collections/man"
           }
         },
         "category_pXaEkj": {
@@ -95,7 +95,7 @@
           "settings": {
             "image": "shopify://shop_images/category-img2.webp",
             "title": "Polo Shirt",
-            "link": ""
+            "link": "shopify://collections/man"
           }
         }
       },
