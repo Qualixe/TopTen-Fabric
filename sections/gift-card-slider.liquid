@@ -12,8 +12,8 @@
                 <div class="product-card">
                   <div class="card-image-wrap">
                     <div class="card-img">
-                      {% if product.image != blank %}
-                        {{ product.image | image_url: width: 1000 | image_tag }}
+                      {% if product.featured_image != blank %}
+                        {{ product.featured_image | image_url: width: 1000 | image_tag }}
                       {% endif %}
                     </div>
                   </div>
