@@ -1,23 +1,177 @@
-		<div class="search-bar">
-			<button class="search-close-btn">
-				<svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path d="M3 15L15 3" stroke="#232323" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-					</path>
-					<path d="M15 15L3 3" stroke="#232323" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-					</path>
-				</svg>
-			</button>
-			<span class="search-bar-window-close-btn"></span>
-			<div class="search-bar-inner">
-				<div class="search-input-field search-page-open-btn">
-					<input type="text" placeholder="Search for products">
-				</div>
-				<button class="search-icon">
-					<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path
-							d="M17.25 17.25L20.75 20.75M19.75 10.25C19.75 5.00329 15.4967 0.75 10.25 0.75C5.00329 0.75 0.75 5.00329 0.75 10.25C0.75 15.4967 5.00329 19.75 10.25 19.75C15.4967 19.75 19.75 15.4967 19.75 10.25Z"
-							stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-					</svg>
-				</button>
-			</div>
-		</div>
+{% style %}
+  .search-results-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    max-height: 360px;
+    overflow-y: auto;
+    display: none;
+    z-index: 99;
+  }
+
+  .search-results-box.active {
+    display: block;
+  }
+
+  .search-loading {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    display: none;
+  }
+
+  .search-result-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .search-result-item:hover {
+    background: #f7f7f7;
+  }
+
+  .search-result-image img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+
+  .search-result-title {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .search-result-price {
+    font-size: 13px;
+    opacity: 0.8;
+  }
+
+  .search-view-all {
+    display: block;
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #eee;
+  }
+{% endstyle %}
+
+<div class="search-bar">
+  <button class="search-close-btn">
+    <svg width="24" height="24" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 15L15 3" stroke="#232323" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M15 15L3 3" stroke="#232323" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <span class="search-bar-window-close-btn"></span>
+
+  <div class="search-bar-inner">
+    <div class="search-input-field">
+      <input
+        type="search"
+        id="ajax-search-input"
+        placeholder="Search for products"
+        autocomplete="off"
+      >
+    </div>
+
+    <button class="search-icon">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M17.25 17.25L20.75 20.75M19.75 10.25C19.75 5.00329 15.4967 0.75 10.25 0.75C5.00329 0.75 0.75 5.00329 0.75 10.25C0.75 15.4967 5.00329 19.75 10.25 19.75C15.4967 19.75 19.75 15.4967 19.75 10.25Z"
+          stroke="#fff" stroke-width="1.5"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- SEARCH RESULTS -->
+  <div class="search-results-box">
+    <div class="search-loading">Searching…</div>
+    <div class="search-results"></div>
+    <a class="search-view-all" href="#">View all results</a>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  $(function () {
+    const $input = $('#ajax-search-input');
+    const $box = $('.search-results-box');
+    const $results = $('.search-results');
+    const $loading = $('.search-loading');
+    const $viewAll = $('.search-view-all');
+
+    let debounce;
+
+    $('.search-close-btn, .search-bar-window-close-btn').on('click', function () {
+      $box.removeClass('active');
+      $input.val('');
+    });
+
+    $input.on('input', function () {
+      clearTimeout(debounce);
+
+      debounce = setTimeout(() => {
+        const query = $.trim($input.val());
+
+        if (query.length < 2) {
+          $box.removeClass('active');
+          return;
+        }
+
+        $box.addClass('active');
+        $loading.show();
+        $results.empty();
+
+        $.getJSON('/search/suggest.json', {
+          q: query,
+          'resources[type]': 'product',
+          'resources[limit]': 6,
+        }).done((data) => {
+          $loading.hide();
+
+          const products = data?.resources?.results?.products || [];
+
+          if (!products.length) {
+            $results.html('<p style="padding:12px">No products found</p>');
+            $viewAll.hide();
+            return;
+          }
+
+          $results.html(
+            products
+              .map(
+                (p) => `
+          <a href="${p.url}" class="search-result-item">
+            <div class="search-result-image">
+              ${p.featured_image?.url ? `<img src="${p.featured_image.url}&width=80">` : ''}
+            </div>
+            <div>
+              <p class="search-result-title">${highlight(p.title, query)}</p>
+              <div class="search-result-price">${formatMoney(p.price_min)}</div>
+            </div>
+          </a>
+        `
+              )
+              .join('')
+          );
+
+          $viewAll.attr('href', `/search?q=${encodeURIComponent(query)}&type=product`).show();
+        });
+      }, 300);
+    });
+
+    function highlight(text, query) {
+      const r = new RegExp(`(${query})`, 'gi');
+      return text.replace(r, '<mark>$1</mark>');
+    }
+
+    function formatMoney(cents) {
+      return Shopify?.formatMoney ? Shopify.formatMoney(cents) : (cents / 100).toFixed(2);
+    }
+  });
+</script>
