@@ -27,12 +27,32 @@
             "image": "shopify://shop_images/progress-bar-icon.png",
             "icon": "",
             "title": "Visit store",
-            "text": ""
+            "text": "13-14, Mollik Tower, Zoo Road, Section-1, Mirpur, Dhaka-1216, Phone: <a href=\"tel:8801959000111\">01959 000111</a>"
+          }
+        },
+        "icon_item_3ccVTt": {
+          "type": "icon_item",
+          "settings": {
+            "image": "shopify://shop_images/gmail.png",
+            "icon": "",
+            "title": "Visit store",
+            "text": "Have a quick question ? Send us a message on E-Mail: <strong>bdcloth.info@gmail.com</strong>"
+          }
+        },
+        "icon_item_y4C4Ja": {
+          "type": "icon_item",
+          "settings": {
+            "image": "shopify://shop_images/smartphone.png",
+            "icon": "",
+            "title": "call us",
+            "text": "Have a quick question ? Send us a message on E-Mail: <strong>bdcloth.info@gmail.com</strong>"
           }
         }
       },
       "block_order": [
-        "icon_item_7GzcKT"
+        "icon_item_7GzcKT",
+        "icon_item_3ccVTt",
+        "icon_item_y4C4Ja"
       ],
       "name": "Icon Item Section",
       "settings": {
