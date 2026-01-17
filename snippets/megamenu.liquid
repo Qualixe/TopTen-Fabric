@@ -6,7 +6,7 @@
     <div class="megamenu-items">
       <div class="megamenu-item">
         <div class="megamenu-link-wrapper">
-          {% for link in menu.links limit: 3 %}
+          {% for link in menu.links %}
             <div class="megamenu-links">
               <h6 class="megamenu-links-title">{{ link.title }}</h6>
               <ul>
@@ -46,10 +46,14 @@
               <h6 class="megamenu-links-title">{{ b.heading | default: 'Featured' }}</h6>
               <ul>
                 {% if b.text != blank %}
-                  <li><a href="{{ b.url | default: '#' }}" class="nav-link-text">{{ b.text }}</a></li>
+                  <li>
+                    <a href="{{ b.url | default: '#' }}" class="nav-link-text">{{ b.text }}</a>
+                  </li>
                 {% endif %}
                 {% if b.text_2 != blank %}
-                  <li><a href="{{ b.url_2 | default: '#' }}" class="nav-link-text">{{ b.text_2 }}</a></li>
+                  <li>
+                    <a href="{{ b.url_2 | default: '#' }}" class="nav-link-text">{{ b.text_2 }}</a>
+                  </li>
                 {% endif %}
                 <li>
                   <a href="{{ b.url | default: '#' }}" class="nav-link-text">
@@ -73,11 +77,12 @@
           </div>
           {% if b.image != blank %}
             <a href="{{ b.url_2 | default: '#' }}" class="megamenu-content-img">
-              {{ b.image | image_url: width: 400 | image_tag: 
-                 alt: b.image_2.alt | default: b.heading_2 | default: 'Featured image',
-                 width: 400,
-                 height: 300,
-                 loading: 'lazy'
+              {{
+                b.image
+                | image_url: width: 400
+                | image_tag: alt: b.image_2.alt
+                | default: b.heading_2
+                | default: 'Featured image', width: 400, height: 300, loading: 'lazy'
               }}
             </a>
           {% endif %}
