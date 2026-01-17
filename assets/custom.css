@@ -122,6 +122,6 @@ form#ContactForm-AcGN3YnNvTGFCd3BWS__contact_form_UwiCkQ button:hover {
     margin-bottom: 10px;
 }
 
-..contact-form__input:focus{
+..contact-form__input{
     outline:none !important;
 }
