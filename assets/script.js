@@ -613,7 +613,7 @@ $(function () {
             </div>
             <div>
               <p class="search-result-title">${highlight(p.title, query)}</p>
-              <div class="search-result-price">${formatMoney(p.price_min)}</div>
+              <div class="search-result-price">TK${formatMoney(p.price_min)}</div>
             </div>
           </a>
         `
