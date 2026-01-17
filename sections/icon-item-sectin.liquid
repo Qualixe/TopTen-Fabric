@@ -1,4 +1,4 @@
-<section class="icon-item-section  {% if section.settings.contact_icon %}contact-icon-item-section{% endif %} color-{{ section.settings.color_scheme }}">
+<section class="icon-item-section  {% if section.settings.contact_icon == true%}contact-icon-item-section{% endif %} color-{{ section.settings.color_scheme }}">
   <div class="container">
     <div class="icon-items">
       {% for icon in section.blocks %}
