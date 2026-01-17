@@ -6,6 +6,7 @@
       background: #fff;
       border: 1px solid #e5e5e5;
       max-height: 360px;
+      max-width:600px;
       overflow-y: auto;
       display: none;
       z-index: 99;
