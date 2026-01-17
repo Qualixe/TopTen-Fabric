@@ -18,6 +18,27 @@
         "color_scheme": ""
       }
     },
+    "icon_item_sectin_ejGe9G": {
+      "type": "icon-item-sectin",
+      "blocks": {
+        "icon_item_7GzcKT": {
+          "type": "icon_item",
+          "settings": {
+            "image": "shopify://shop_images/progress-bar-icon.png",
+            "icon": "",
+            "title": "Visit store",
+            "text": "<strong>Physical address: </strong>House-06, Block-A, Road-3, Mirpur-11, Dhaka-1216, Mirpur, Bangladesh"
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_7GzcKT"
+      ],
+      "name": "Icon Item Section",
+      "settings": {
+        "color_scheme": ""
+      }
+    },
     "main": {
       "type": "main-page",
       "blocks": {
@@ -157,6 +178,7 @@
   },
   "order": [
     "common_page_banner_znwqwL",
+    "icon_item_sectin_ejGe9G",
     "main",
     "form"
   ]
