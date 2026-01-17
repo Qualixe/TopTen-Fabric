@@ -6,8 +6,39 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
+    "common_page_banner_znwqwL": {
+      "type": "common-page-banner",
+      "name": "Common Page Banner",
+      "settings": {
+        "image": "shopify://shop_images/contact-common-banner-bg.jpg",
+        "title": "Contact us",
+        "color_scheme": ""
+      }
+    },
+    "icon_item_sectin_ejGe9G": {
+      "type": "icon-item-sectin",
+      "blocks": {
+        "icon_item_7GzcKT": {
+          "type": "icon_item",
+          "settings": {
+            "image": "shopify://shop_images/progress-bar-icon.png",
+            "icon": "",
+            "title": "Visit store",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon_item_7GzcKT"
+      ],
+      "name": "Icon Item Section",
+      "settings": {
+        "color_scheme": ""
+      }
+    },
     "main": {
       "type": "main-page",
       "blocks": {
@@ -68,6 +99,7 @@
         "title",
         "content"
       ],
+      "disabled": true,
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -100,9 +132,9 @@
               "settings": {
                 "label": "Submit",
                 "style_class": "button",
-                "width": "fit-content",
+                "width": "custom",
                 "custom_width": 100,
-                "width_mobile": "fit-content",
+                "width_mobile": "custom",
                 "custom_width_mobile": 100
               },
               "blocks": {}
@@ -145,6 +177,8 @@
     }
   },
   "order": [
+    "common_page_banner_znwqwL",
+    "icon_item_sectin_ejGe9G",
     "main",
     "form"
   ]

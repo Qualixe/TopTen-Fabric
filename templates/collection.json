@@ -9,12 +9,24 @@
  */
 {
   "sections": {
+    "common_page_banner_PetJyb": {
+      "type": "common-page-banner",
+      "name": "Common Page Banner",
+      "settings": {
+        "image": "shopify://shop_images/megamenu-item-bg_f0612dfd-63b2-4880-8f6a-bc5c9704da04.jpg",
+        "title": "Collections",
+        "color_scheme": "scheme-1"
+      }
+    },
     "main": {
       "type": "main-collections",
-      "settings": {}
+      "settings": {
+        "products_per_page": 16
+      }
     }
   },
   "order": [
+    "common_page_banner_PetJyb",
     "main"
   ]
 }
