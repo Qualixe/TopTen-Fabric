@@ -62,3 +62,6 @@
   .search-input-field input:focus{
     outline:none;
   }
+  .search-input-field input{
+    border-radius:0 !important;
+  }
