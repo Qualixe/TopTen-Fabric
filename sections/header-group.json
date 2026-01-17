@@ -17,8 +17,8 @@
         "mega_menu_tHkRjp": {
           "type": "mega_menu",
           "settings": {
-            "link": "catalog",
-            "menu": "main-menu",
+            "link": "mens",
+            "menu": "megamenu",
             "heading": "EXPLORE LATEST",
             "text": "Featured Collection",
             "text_2": "Featured Collection",
