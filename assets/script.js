@@ -69,18 +69,21 @@ $(document).ready(function () {
   $(".side-cart-btn").click(function (event) {
     event.stopPropagation();
     $(".cart-sidebar").addClass("active");
+    $(".cart-sidebar-box").addClass("active");
     $("body").addClass("active");
   });
 
   $(".cart-sidebar-close-window-btn").click(function (event) {
     event.stopPropagation();
     $(".cart-sidebar").removeClass("active");
+    $(".cart-sidebar-box").removeClass("active");
     $("body").removeClass("active");
   });
 
   $(".side-cart-close-btn").click(function (event) {
     event.stopPropagation();
     $(".cart-sidebar").removeClass("active");
+    $(".cart-sidebar-box").removeClass("active");
     $("body").removeClass("active");
   });
   // cart-sidebar js end---
