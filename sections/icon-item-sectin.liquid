@@ -1,4 +1,4 @@
-<section class="icon-item-section">
+<section class="icon-item-section color-{{ section.settings.color_scheme }} {% if section.settings.contact_icon %}contact-icon-item-section{% endif %}">
   <div class="container">
     <div class="icon-items">
       {% for icon in section.blocks %}
@@ -55,6 +55,21 @@
           "type": "text",
           "id": "text",
           "label": "Icon Text"
+        },
+        {
+          "type": "checkbox",
+          "label": "Contact Icon",
+          "id": "contact_icon",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Color"
+        },
+        {
+          "type": "color_scheme",
+          "id": "color_scheme",
+          "label": "Color Scheme"
         }
       ]
     }
