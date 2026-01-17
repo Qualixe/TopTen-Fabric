@@ -1,22 +1,32 @@
-<section class="icon-item-section  {% if section.settings.contact_icon == true%}contact-icon-item-section{% endif %} color-{{ section.settings.color_scheme }}">
+<section class="icon-item-section {% if section.settings.contact_icon %}contact-icon-item-section{% endif %} color-{{ section.settings.color_scheme }}">
   <div class="container">
     <div class="icon-items">
       {% for icon in section.blocks %}
         <div class="icon-item">
           <span class="icon">
             {% if icon.settings.image != blank %}
-              {{ icon.settings.image | image_url: width: 1000 | image_tag }}
+              {{ icon.settings.image
+                | image_url: width: 1000
+                | image_tag: alt: icon.settings.title
+              }}
             {% else %}
               {{ icon.settings.icon }}
             {% endif %}
           </span>
-          <p class="icon-item-title">{{ icon.settings.title }}</p>
-          <p class="icon-item-text">{{ icon.settings.text }}</p>
+
+          {% if icon.settings.title != blank %}
+            <p class="icon-item-title">{{ icon.settings.title }}</p>
+          {% endif %}
+
+          {% if icon.settings.text != blank %}
+            <p class="icon-item-text">{{ icon.settings.text }}</p>
+          {% endif %}
         </div>
       {% endfor %}
     </div>
   </div>
 </section>
+
 {% schema %}
 {
   "name": "Icon Item Section",
@@ -27,8 +37,8 @@
     },
     {
       "type": "checkbox",
-      "label": "Contact Icon",
       "id": "contact_icon",
+      "label": "Contact Icon",
       "default": false
     },
     {
@@ -50,7 +60,7 @@
         {
           "type": "html",
           "id": "icon",
-          "label": "Icon"
+          "label": "Icon (HTML / SVG)"
         },
         {
           "type": "text",
