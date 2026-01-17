@@ -632,6 +632,6 @@ $(function () {
   }
 
   function formatMoney(cents) {
-    return Shopify?.formatMoney ? Shopify.formatMoney(cents) : (cents / 100).toFixed(2);
+    return Shopify?.formatMoney ? Shopify.formatMoney(cents) : cents;
   }
 });
