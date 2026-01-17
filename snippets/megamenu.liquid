@@ -6,7 +6,7 @@
     <div class="megamenu-items">
       <div class="megamenu-item">
         <div class="megamenu-link-wrapper">
-          {% for link in menu.links %}
+          {% for link in menu.links limit:6 %}
             <div class="megamenu-links">
               <h6 class="megamenu-links-title">{{ link.title }}</h6>
               <ul>
