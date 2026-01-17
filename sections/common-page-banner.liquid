@@ -1,0 +1,64 @@
+<section class="common-banner  color-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="common-banner-content">
+      <div class="section-heading-wrapper">
+        <h2 class="section-heading">{{ section.settings.title }}</h2>
+        <ul class="breadcrumb">
+          <li>
+            <a href="{{ routes.root_url }}">Home</a>
+            <span class="breadcrumb-icon">
+              <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                	d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+                	fill="black">
+                </path>
+              </svg>
+            </span>
+          </li>
+          <li>
+            <span class="active">{{ section.settings.title }}</span> <span class="breadcrumb-icon"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% style %}
+  .common-banner {
+    background-image: url('{{ section.settings.image | image_url }}');
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Common Page Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Collections"
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Common Page Banner",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
