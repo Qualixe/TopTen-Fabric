@@ -27,9 +27,7 @@
             "image": "shopify://shop_images/progress-bar-icon.png",
             "icon": "",
             "title": "Visit store",
-            "text": "",
-            "contact_icon": true,
-            "color_scheme": ""
+            "text": ""
           }
         }
       },
@@ -38,6 +36,7 @@
       ],
       "name": "Icon Item Section",
       "settings": {
+        "contact_icon": true,
         "color_scheme": ""
       }
     },
