@@ -53,45 +53,49 @@
         </div>
       </div>
       <div class="product-content-area">
-        {% for block in section.blocks %}
-          {% case block.type %}
-            {% when 'heading' %}
-              <h2 class="product-title">{{ product.title }}</h2>
-            {% when '@app' %}
-              <div class="app_block">
-                {% render block %}
-              </div>
-            {% when 'price' %}
-              <div class="product-price-wrap">
-                <h5 class="latest-price">{{ product.price | money }}</h5>
-                {% if product.compare_at_price > product.price %}
-                  <h5 class="previous-price">{{ product.compare_at_price | money }}</h5>
-                {% endif %}
-              </div>
-            {% when 'short_description' %}
-              {% assign short_description = product.metafields.custom.short_description %}
-              {% if short_description != blank %}
-                <div class="product-description-list">
-                  {{ short_description | metafield_tag }}
-                </div>
-              {% endif %}
-            {% when 'info' %}
-              {% render 'product-info', product: product, block: block %}
-            {% when 'size_guide' %}
-              {% render 'size-guide', product: product, block: block %}
-            {% when 'variant' %}
-              {% render 'product-variants', product: product %}
-            {% when 'qty' %}
-              {% render 'product-qty', product: product, block: block %}
-            {% when 'button' %}
-              {% render 'product-form', product: product, block: block %}
-            {% when 'payment' %}
-              {% render 'payment-icon', product: product, block: block %}
-          {% endcase %}
-        {% endfor %}
+        <div class="product-content-area-inner">
+          <div class="product-content-inner">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'heading' %}
+                  <h2 class="product-title">{{ product.title }}</h2>
+                {% when '@app' %}
+                  <div class="app_block">
+                    {% render block %}
+                  </div>
+                {% when 'price' %}
+                  <div class="product-price-wrap">
+                    <h5 class="latest-price">{{ product.price | money }}</h5>
+                    {% if product.compare_at_price > product.price %}
+                      <h5 class="previous-price">{{ product.compare_at_price | money }}</h5>
+                    {% endif %}
+                  </div>
+                {% when 'short_description' %}
+                  {% assign short_description = product.metafields.custom.short_description %}
+                  {% if short_description != blank %}
+                    <div class="product-description-list">
+                      {{ short_description | metafield_tag }}
+                    </div>
+                  {% endif %}
+                {% when 'info' %}
+                  {% render 'product-info', product: product, block: block %}
+                {% when 'size_guide' %}
+                  {% render 'size-guide', product: product, block: block %}
+                {% when 'variant' %}
+                  {% render 'product-variants', product: product %}
+                {% when 'qty' %}
+                  {% render 'product-qty', product: product, block: block %}
+                {% when 'button' %}
+                  {% render 'product-form', product: product, block: block %}
+                {% when 'payment' %}
+                  {% render 'payment-icon', product: product, block: block %}
+              {% endcase %}
+            {% endfor %}
 
-        {% render 'accordions', product: product, section: section %}
-        {% render 'product-icons', product: product, section: section %}
+            {% render 'accordions', product: product, section: section %}
+            {% render 'product-icons', product: product, section: section %}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -110,7 +114,6 @@
   }
 {% endstyle %}
 <script>
-
   window.productData = {
     variants: {{ product.variants | json }},
     options: {{ product.options_with_values | json }}
