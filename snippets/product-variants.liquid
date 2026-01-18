@@ -1,0 +1,136 @@
+{%- doc -%}
+  Renders product variants with proper JavaScript integration.
+  This integrates with variants.js for dynamic functionality.
+
+  @param {object} product - The product object.
+{%- enddoc -%}
+
+{% unless product.has_only_default_variant %}
+  {% for option in product.options_with_values %}
+    {% if option.values.size > 0 %}
+      <div class="product-varient">
+        <div class="product-varient-title-wrap">
+          <h6 class="product-varient-title">
+            <strong>{{ option.name }}</strong>
+            {% assign size_guide = product.metafields.custom.size_guide.value %}
+
+            {% if option.position == 1 and size_guide != blank %}
+              <button class="size-sidebar-btn" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                  <path d="M241.1 580.2C222.4 598.9 192 598.9 173.2 580.2L60.1 467.1C41.4 448.4 41.4 418 60.1 399.2L77.1 382.2L150.6 455.7C160 465.1 175.2 465.1 184.5 455.7C193.8 446.3 193.9 431.1 184.5 421.8L111 348.3L144.9 314.4L195.8 365.3C205.2 374.7 220.4 374.7 229.7 365.3C239 355.9 239.1 340.7 229.7 331.4L178.8 280.5L212.7 246.6L286.2 320.1C295.6 329.5 310.8 329.5 320.1 320.1C329.4 310.7 329.5 295.5 320.1 286.2L246.6 212.7L280.5 178.8L331.4 229.7C340.8 239.1 356 239.1 365.3 229.7C374.6 220.3 374.7 205.1 365.3 195.8L314.4 144.9L348.3 111L421.8 184.5C431.2 193.9 446.4 193.9 455.7 184.5C465 175.1 465.1 159.9 455.7 150.6L382.2 77.1L399.2 60.1C417.9 41.4 448.3 41.4 467.1 60.1L580.5 172.9C599.2 191.6 599.2 222 580.5 240.8L241.1 580.2z" />
+                </svg>
+                <span>Size Guide</span>
+              </button>
+            {% endif %}
+          </h6>
+        </div>
+
+        <div class="product-varient-field-wrap product-size">
+          {% for value in option.values %}
+            {% assign option_name = 'options[' | append: option.name | append: ']' %}
+            {% assign current_variant = product.selected_or_first_available_variant %}
+            {% assign option_index = 'option' | append: option.position %}
+
+            {% comment %} Check if this value matches the current variant {% endcomment %}
+            {% assign is_selected = false %}
+            {% case option.position %}
+              {% when 1 %}
+                {% if current_variant.option1 == value %}
+                  {% assign is_selected = true %}
+                {% endif %}
+              {% when 2 %}
+                {% if current_variant.option2 == value %}
+                  {% assign is_selected = true %}
+                {% endif %}
+              {% when 3 %}
+                {% if current_variant.option3 == value %}
+                  {% assign is_selected = true %}
+                {% endif %}
+            {% endcase %}
+
+            {% comment %} Check if any variant with this option value is available {% endcomment %}
+            {% assign is_available = false %}
+            {% for variant in product.variants %}
+              {% assign variant_matches = false %}
+              {% case option.position %}
+                {% when 1 %}
+                  {% if variant.option1 == value %}
+                    {% assign variant_matches = true %}
+                  {% endif %}
+                {% when 2 %}
+                  {% if variant.option2 == value %}
+                    {% assign variant_matches = true %}
+                  {% endif %}
+                {% when 3 %}
+                  {% if variant.option3 == value %}
+                    {% assign variant_matches = true %}
+                  {% endif %}
+              {% endcase %}
+              {% if variant_matches and variant.available %}
+                {% assign is_available = true %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+
+            {% if option.name == 'Color' or option.name == 'Colour' %}
+              {% assign variant_image = product.variants | where: option_index, value | first %}
+              <div class="product-varient-input-field product-color{% unless is_available %} disabled{% endunless %}">
+                <input
+                  class="product-varient-input variant-option"
+                  type="radio"
+                  id="color_{{ option.position }}_{{ forloop.index }}"
+                  name="{{ option_name }}"
+                  value="{{ value }}"
+                  data-option-position="{{ option.position }}"
+                  data-option-name="{{ option.name }}"
+                  {% if is_selected %}
+                    checked
+                  {% endif %}
+                  {% unless is_available %}
+                    disabled
+                  {% endunless %}
+                >
+                <label class="product-varient-label" for="color_{{ option.position }}_{{ forloop.index }}">
+                  <span class="varient-value">
+                    {% if variant_image.image %}
+                      <img
+                        src="{{ variant_image.image.src | image_url: width: 120, height: 120 }}"
+                        alt="{{ value }}"
+                        width="60"
+                        height="60"
+                      >
+                    {% else %}
+                      <span>{{ value }}</span>
+                    {% endif %}
+                  </span>
+                </label>
+                <p>{{ value }}</p>
+              </div>
+            {% else %}
+              <div class="product-varient-input-field{% unless is_available %} disabled{% endunless %}">
+                <input
+                  class="product-varient-input variant-option"
+                  type="radio"
+                  id="option_{{ option.position }}_{{ forloop.index }}"
+                  name="{{ option_name }}"
+                  value="{{ value }}"
+                  data-option-position="{{ option.position }}"
+                  data-option-name="{{ option.name }}"
+                  {% if is_selected %}
+                    checked
+                  {% endif %}
+                  {% unless is_available %}
+                    disabled
+                  {% endunless %}
+                >
+                <label class="product-varient-label" for="option_{{ option.position }}_{{ forloop.index }}">
+                  <span class="varient-value">{{ value }}</span>
+                </label>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endunless %}

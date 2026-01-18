@@ -1,0 +1,279 @@
+<div class="product-breadcrumb">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li>
+        <a href="{{ routes.root_url }}">Home</a>
+        <span class="breadcrumb-icon">
+          <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+            	d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+            	fill="black">
+            </path>
+          </svg>
+        </span>
+      </li>
+      <li>
+        <span class="active">{{ page_title }}</span> <span class="breadcrumb-icon"></span>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- product section start -->
+<section class="section product-section color-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="product-page-content-wrap">
+      <div class="product-slider-area">
+        <div class="product-slider-inner">
+          <div class="swiper product-slider">
+            <div class="swiper-wrapper">
+              {% for image in product.media %}
+                <div class="swiper-slide">
+                  <div class="product-slider-img">
+                    {% if image != blank %}
+                      {{ image | image_url: width: 2000, height: 2000 | image_tag: alt: 'collection-img' }}
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+          <div thumbsSlider="" class="swiper product-slider-thumb">
+            <div class="swiper-wrapper">
+              {% for img in product.media %}
+                <div class="swiper-slide">
+                  <div class="product-slider-img">
+                    {{ img | image_url: width: 1000, height: 1000 | image_tag: alt: 'collection_img' }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-content-area">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'heading' %}
+              <h2 class="product-title">{{ product.title }}</h2>
+            {% when '@app' %}
+              <div class="app_block">
+                {% render block %}
+              </div>
+            {% when 'price' %}
+              <div class="product-price-wrap">
+                <h5 class="latest-price">{{ product.price | money }}</h5>
+                {% if product.compare_at_price > product.price %}
+                  <h5 class="previous-price">{{ product.compare_at_price | money }}</h5>
+                {% endif %}
+              </div>
+            {% when 'short_description' %}
+              {% assign short_description = product.metafields.custom.short_description %}
+              {% if short_description != blank %}
+                <div class="product-description-list">
+                  {{ short_description | metafield_tag }}
+                </div>
+              {% endif %}
+            {% when 'info' %}
+              {% render 'product-info', product: product, block: block %}
+            {% when 'size_guide' %}
+              {% render 'size-guide', product: product, block: block %}
+            {% when 'variant' %}
+              {% render 'product-variants', product: product %}
+            {% when 'qty' %}
+              {% render 'product-qty', product: product, block: block %}
+            {% when 'button' %}
+              {% render 'product-form', product: product, block: block %}
+            {% when 'payment' %}
+              {% render 'payment-icon', product: product, block: block %}
+          {% endcase %}
+        {% endfor %}
+
+        {% render 'accordions', product: product, section: section %}
+        {% render 'product-icons', product: product, section: section %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% for block in section.blocks %}
+  {% if block.type == 'size_guide' %}
+    {% render 'size-chart', block: block, product: product %}
+  {% endif %}
+{% endfor %}
+
+{% style %}
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+{% endstyle %}
+<script>
+
+  window.productData = {
+    variants: {{ product.variants | json }},
+    options: {{ product.options_with_values | json }}
+  };
+</script>
+
+<script src="{{ 'variants.js' |asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "single-product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "label": "Color Scheme",
+      "id": "color_scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    },
+    {
+      "type": "heading",
+      "limit": 1,
+      "name": "Heading"
+    },
+    {
+      "type": "price",
+      "limit": 1,
+      "name": "Price"
+    },
+    {
+      "type": "short_description",
+      "limit": 1,
+      "name": "Short Description"
+    },
+    {
+      "type": "info",
+      "limit": 1,
+      "name": "Info"
+    },
+    {
+      "type": "variant",
+      "limit": 1,
+      "name": "Variant"
+    },
+    {
+      "type": "qty",
+      "limit": 1,
+      "name": "Quantity"
+    },
+    {
+      "type": "size_guide",
+      "limit": 1,
+      "name": "Size Guide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button",
+          "label": "Button",
+          "default": "Size guide"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "size chart:"
+        },
+        {
+          "type": "html",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button",
+          "label": "Button",
+          "default": "Add To Cart"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_buynow",
+          "label": "Buy Now",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "payment",
+      "name": "Payment",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "checkbox",
+          "id": "dynamic",
+          "label": "Dynamic",
+          "default": false
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "name": "Accordion",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Delivery"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Body"
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Delivery within 3 working days"
+        },
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

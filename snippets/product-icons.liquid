@@ -1,0 +1,21 @@
+{% assign icons = section.blocks | where: 'type', 'icon' %}
+
+<div class="product-icon-item-area">
+  <div class="icon-items">
+    {% for block in icons %}
+      {% assign b = block.settings %}
+      <div class="icon-item">
+        <div class="icon-item-img">
+          {% if b.icon != blank %}
+            {{ b.icon }}
+          {% else %}
+            {{ b.img | image_url: width: 500 | image_tag: class: 'icon_img' }}
+          {% endif %}
+        </div>
+        <div class="icon-item-content">
+          <p class="icon-item-title">{{ b.heading }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>

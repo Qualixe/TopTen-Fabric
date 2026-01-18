@@ -1,0 +1,16 @@
+{% assign b = block.settings %}
+<div class="payment-methods-area">
+  {% if b.dynamic == false and b.icon != blank %}
+    <div class="payment-method-icons">
+      {% if b.icon != blank %}
+        {{ b.icon | image_url: width: 1500 | image_tag: class: 'payment_icon' }}
+      {% else %}
+        {{ b.icon }}
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="payment-method-lists">
+    {{ b.text }}
+  </div>
+</div>

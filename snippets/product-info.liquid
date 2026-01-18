@@ -1,0 +1,19 @@
+{% assign available = product.available %}
+<table class="product-info">
+  <tr>
+    <td><strong>Availability</strong></td>
+    <td>:</td>
+    <td>
+      {% if available %}
+        In Stock
+      {% else %}
+        Out of Stock
+      {% endif %}
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Vendor</strong></td>
+    <td>:</td>
+    <td>{{ product.vendor }}</td>
+  </tr>
+</table>
