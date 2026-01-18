@@ -58,7 +58,7 @@
       "type": "related-products",
       "name": "related-section",
       "settings": {
-        "heading": "",
+        "heading": "similar product",
         "btn_enable": true,
         "btn_text": "view all",
         "link": "shopify://collections",
