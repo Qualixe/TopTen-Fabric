@@ -114,9 +114,7 @@
         "store_item_KrnrRG",
         "store_item_bFKnpe"
       ],
-      "custom_css": [
-        "div{margin-bottom:60px}"
-      ],
+      "custom_css": [],
       "name": "Store Section",
       "settings": {
         "heading": "Visit Our Store"
