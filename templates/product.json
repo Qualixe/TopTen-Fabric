@@ -28,6 +28,10 @@
           "type": "variant",
           "settings": {}
         },
+        "qty_aC9twK": {
+          "type": "qty",
+          "settings": {}
+        },
         "button_xDq4tj": {
           "type": "button",
           "settings": {
@@ -41,6 +45,7 @@
         "price_KKE4VH",
         "info_w8UXEy",
         "variant_kaTJy6",
+        "qty_aC9twK",
         "button_xDq4tj"
       ],
       "settings": {
