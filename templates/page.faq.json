@@ -68,6 +68,18 @@
     },
     "faq_tQBLd6": {
       "type": "Faq",
+      "blocks": {
+        "faq_item_xeF944": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What types of fabrics does TopTen Fabrics offer?",
+            "answer": "<p>opTen Fabrics offers a wide range of high-quality fabrics including cotton, linen, denim, rayon, polyester, blends, and seasonal specialty fabrics to meet both retail and wholesale needs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_xeF944"
+      ],
       "name": "FAQ Section",
       "settings": {
         "title": "Frequently asked questions",
