@@ -11,9 +11,7 @@
                   <div class="product-slider-img">
                     {% if image != blank %}
                       {{ image | image_url: width: 2000, height: 2000 | image_tag: alt: 'collection-img' }}
-
-                      {% comment %} Show overlay only for the first image {% endcomment %}
-                      {% assign overlay = image.metafields.custom.style_spotlight %}
+                      {% assign overlay = product.metafields.custom.style_spotlight %}
                       {% if forloop.first and overlay != blank %}
                         <div class="overlay">
                           <div class="overlay-content">
