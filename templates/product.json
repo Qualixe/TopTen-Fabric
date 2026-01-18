@@ -38,6 +38,14 @@
             "button": "Add To Cart",
             "enable_buynow": false
           }
+        },
+        "payment_Vz6EU7": {
+          "type": "payment",
+          "settings": {
+            "icon": "shopify://shop_images/payment-icons.jpg",
+            "dynamic": false,
+            "text": "<ul><li>FREE 1-2 day delivery on 5k+ pincodes</li></ul>"
+          }
         }
       },
       "block_order": [
@@ -46,7 +54,8 @@
         "info_w8UXEy",
         "variant_kaTJy6",
         "qty_aC9twK",
-        "button_xDq4tj"
+        "button_xDq4tj",
+        "payment_Vz6EU7"
       ],
       "settings": {
         "color_scheme": ""
