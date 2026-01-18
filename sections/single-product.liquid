@@ -49,17 +49,19 @@
             {% for block in section.blocks %}
               {% case block.type %}
                 {% when 'heading' %}
-                  <h2 class="product-title">{{ product.title }}</h2>
+                  <div class="product-heading">
+                    <h2 class="product-title">{{ product.title }}</h2>
+
+                    <div class="product-price-wrap">
+                      <h5 class="latest-price">{{ product.price | money }}</h5>
+                      {% if product.compare_at_price > product.price %}
+                        <h5 class="previous-price">{{ product.compare_at_price | money }}</h5>
+                      {% endif %}
+                    </div>
+                  </div>
                 {% when '@app' %}
                   <div class="app_block">
                     {% render block %}
-                  </div>
-                {% when 'price' %}
-                  <div class="product-price-wrap">
-                    <h5 class="latest-price">{{ product.price | money }}</h5>
-                    {% if product.compare_at_price > product.price %}
-                      <h5 class="previous-price">{{ product.compare_at_price | money }}</h5>
-                    {% endif %}
                   </div>
                 {% when 'short_description' %}
                   {% assign short_description = product.metafields.custom.short_description %}
@@ -134,11 +136,6 @@
       "type": "heading",
       "limit": 1,
       "name": "Heading"
-    },
-    {
-      "type": "price",
-      "limit": 1,
-      "name": "Price"
     },
     {
       "type": "short_description",
