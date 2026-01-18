@@ -28,6 +28,14 @@
           "type": "variant",
           "settings": {}
         },
+        "size_guide_fxQd7Y": {
+          "type": "size_guide",
+          "settings": {
+            "button": "Size guide",
+            "heading": "size chart:",
+            "text": ""
+          }
+        },
         "qty_aC9twK": {
           "type": "qty",
           "settings": {}
@@ -53,6 +61,7 @@
         "price_KKE4VH",
         "info_w8UXEy",
         "variant_kaTJy6",
+        "size_guide_fxQd7Y",
         "qty_aC9twK",
         "button_xDq4tj",
         "payment_Vz6EU7"
