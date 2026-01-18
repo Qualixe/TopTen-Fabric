@@ -1,0 +1,89 @@
+{% if product %}
+  
+
+
+<section class="section related-product-section color-{{ section.settings.color_scheme }}">
+  <div class="container">
+    <div class="section-heading-wrapper">
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="swiper related-product-slider">
+      <div class="swiper-wrapper">
+        
+          
+        {% assign current_collection = product.collections.first %}
+
+        {% if current_collection %}
+          {% for related in current_collection.products %}
+            {% if related.id != product.id %}
+                <div class="swiper-slide">
+              <div class="related-product-item">
+                {% render 'card-product', product: related %}
+                </div>
+               </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+     
+        {% endif %}
+         
+        
+
+      </div>
+      <div class="swiper-button-prev related-product-slider-btn-prev"></div>
+      <div class="swiper-button-next related-product-slider-btn-next"></div>
+    </div>
+    {% if section.settings.btn_enable %}
+    <div class="section-btn">
+      <a href="{{ current_collection.url }}" class="btn primary-btn">{{ section.settings.btn_text }} <span></span></a>
+    </div>  
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+{% schema %}
+{
+    "name": "related-products",
+    "settings": [
+        {   
+            "type": "text",
+            "label": "Section Heading",
+            "id":"heading"
+        
+        
+        },
+        {
+            "type":"checkbox",
+            "id": "btn_enable",
+            "label": "View All Button Enable",
+            "default":true
+        
+        },
+        {   
+            "type": "text",
+            "label": "Button text",
+            "id":"btn_text",
+            "default":"view all"
+        
+        
+        },{   
+            "type": "url",
+            "label": "Button Link",
+            "id":"link"
+        
+        
+        },
+        {
+            "type": "color_scheme",
+            "label": "Color_scheme",
+            "id": "color_scheme"
+        }
+    ],
+    "presets": [
+        {
+            "name":"related-section"
+        }
+    ]
+
+}
+{% endschema %}
