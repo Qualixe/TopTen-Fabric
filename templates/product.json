@@ -24,10 +24,6 @@
           "type": "info",
           "settings": {}
         },
-        "variant_kaTJy6": {
-          "type": "variant",
-          "settings": {}
-        },
         "size_guide_fxQd7Y": {
           "type": "size_guide",
           "settings": {
@@ -35,6 +31,10 @@
             "heading": "size chart:",
             "text": ""
           }
+        },
+        "variant_kaTJy6": {
+          "type": "variant",
+          "settings": {}
         },
         "button_xDq4tj": {
           "type": "button",
@@ -56,8 +56,8 @@
         "heading_pNaxaA",
         "price_KKE4VH",
         "info_w8UXEy",
-        "variant_kaTJy6",
         "size_guide_fxQd7Y",
+        "variant_kaTJy6",
         "button_xDq4tj",
         "payment_Vz6EU7"
       ],
