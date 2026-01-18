@@ -61,7 +61,7 @@
         "heading": "",
         "btn_enable": true,
         "btn_text": "view all",
-        "link": "",
+        "link": "shopify://collections",
         "color_scheme": ""
       }
     }
