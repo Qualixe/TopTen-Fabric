@@ -1,0 +1,72 @@
+{% assign s = section.settings %}
+
+<section class="section img-text-section color-{{ s.color_scheme }} {% if s.layout == 'layout2'  %}img-text-section-reverse {% endif %}">
+  <div class="container">
+    <div class="img-text-section-wrapper">
+      <div class="img-text-section-img">
+        {% if s.image != blank %}
+          {{ s.image | image_url: width: 1000 | image_tag: alt: 'Image' }}
+        {% endif %}
+      </div>
+      <div class="img-text-section-content">
+        <h2 class="img-text-section-content-title">{{ s.title }}</h2>
+        <p class="img-text-section-content-text">
+          {{ s.text }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Image with Text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Select Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Who we are?",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "label": "choose layout",
+      "id": "layout",
+      "options": [
+        {
+          "label": "Layout 1",
+          "value": "layout1"
+        },
+        {
+          "label": "Layout 2",
+          "value": "layout2"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with Text"
+    }
+  ]
+}
+{% endschema %}
