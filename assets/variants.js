@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (priceElement && matchedVariant.price) {
                 // Format price (assuming price is in cents)
                 const formattedPrice = (matchedVariant.price / 100).toFixed(2);
-                priceElement.textContent = `$${formattedPrice}`;
+                priceElement.textContent = `tk${formattedPrice}`;
             }
 
             // Update button
