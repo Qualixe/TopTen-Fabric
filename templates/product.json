@@ -19,7 +19,6 @@
         "size_guide_fxQd7Y": {
           "type": "size_guide",
           "settings": {
-            "button": "",
             "heading": "size chart:",
             "text": ""
           }
@@ -54,9 +53,21 @@
       "settings": {
         "color_scheme": ""
       }
+    },
+    "related_products_zJwpz3": {
+      "type": "related-products",
+      "name": "related-section",
+      "settings": {
+        "heading": "",
+        "btn_enable": true,
+        "btn_text": "view all",
+        "link": "",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "related_products_zJwpz3"
   ]
 }
