@@ -1,0 +1,295 @@
+<!-- breadcrumbs section start -->
+<div class="article-breadcrumb">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li>
+        <a href="{{ routes.root_url }}">Home</a> 
+        <span class="breadcrumb-icon">
+          <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+              fill="black">
+            </path>
+          </svg>
+        </span>
+      </li>
+      <li>
+        <a href="{{ blog.url }}">{{ blog.title }}</a>
+        <span class="breadcrumb-icon">
+          <svg aria-hidden="true" focusable="false" class="icon icon-caret" viewBox="0 0 10 6">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z"
+              fill="black">
+            </path>
+          </svg>
+        </span>
+      </li>
+      <li><span class="active">{{ article.title }}</span></li>
+    </ul>
+  </div>
+</div>
+<!-- breadcrumbs section end -->
+
+<!-- article-section start -->
+<section class="article-section">
+  <div class="article-heading">
+    <div class="container">
+      <h1 class="h2 article-title">{{ article.title }}</h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="article-content-wrapper">
+      <div class="article-content-left">
+        {% if article.image %}
+          <div class="article-content-img">
+            {{ article.image | image_url: width: 1200 | image_tag: alt: article.image.alt }}
+          </div>
+        {% endif %}
+        
+        <div class="article-content-inner">
+          <div class="article-content-description">
+            <h6 class="h6">by&nbsp;{{ article.author }}&nbsp;</h6>
+            <span class="devider-circle"></span>
+            <h6 class="h6">{{ article.published_at | date: '%B %d, %Y' }}</h6>
+            {% if article.tags.size > 0 %}
+              <span class="devider-circle"></span>
+              <h6 class="h6">{{ article.tags.first }}</h6>
+            {% endif %}
+          </div>
+          
+          <div class="article-content">
+            {{ article.content }}
+          </div>
+          
+          <div class="article-content-share">
+            <div class="article-content-description">
+              {% if article.tags.size > 1 %}
+                {% for tag in article.tags limit: 2 %}
+                  <h6 class="h6">{{ tag }}</h6>
+                  {% unless forloop.last %}<span class="devider-circle"></span>{% endunless %}
+                {% endfor %}
+              {% endif %}
+            </div>
+            <button class="share-btn" onclick="shareArticle()">
+              <svg width="23" height="10" viewBox="0 0 23 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.2217 0C19.9831 0 22.2217 2.23858 22.2217 5C22.2217 7.76142 19.9831 10 17.2217 10C15.0451 9.99981 13.1943 8.6085 12.5078 6.66699H6.47656C6.01885 7.96157 4.78424 8.88965 3.33301 8.88965L3.16211 8.88477C1.40087 8.79564 0.000218062 7.33899 0 5.55566C0.000175988 3.71497 1.49232 2.22283 3.33301 2.22266C4.78424 2.22266 6.0187 3.14985 6.47656 4.44434H12.2539C12.5304 1.94463 14.6483 0.000225265 17.2217 0ZM17.2217 1.5C15.2889 1.50024 13.7217 3.06715 13.7217 5C13.7217 6.93285 15.2889 8.49976 17.2217 8.5C19.1547 8.5 20.7217 6.933 20.7217 5C20.7217 3.067 19.1547 1.5 17.2217 1.5ZM3.33301 3.72266C2.32074 3.72283 1.50018 4.5434 1.5 5.55566C1.50023 6.56789 2.32077 7.38947 3.33301 7.38965C4.34539 7.38965 5.16677 6.568 5.16699 5.55566C5.16682 4.54329 4.34542 3.72266 3.33301 3.72266Z" fill="#686868"></path>
+              </svg>
+              Share
+            </button>
+          </div>
+        </div>
+        
+        <!-- Navigation Links -->
+        <div class="content-link-wrap">
+          {% if blog.previous_article %}
+            <a href="{{ blog.previous_article.url }}">
+              <span class="icon">
+                <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.2501 23.22L2.01344 13.9834C0.922604 12.8925 0.922604 11.1075 2.01344 10.0167L11.2501 0.780029" stroke="#232323" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+              {{ blog.previous_article.title }}
+            </a>
+          {% endif %}
+          
+          {% if blog.next_article %}
+            <a href="{{ blog.next_article.url }}">
+              {{ blog.next_article.title }}
+              <span class="icon">
+                <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.62305 23.22L10.8597 13.9834C11.9505 12.8925 11.9505 11.1075 10.8597 10.0167L1.62305 0.780029" stroke="#232323" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </a>
+          {% endif %}
+        </div>
+        
+        <!-- Author Bio -->
+        <div class="blog-author-wrap">
+          <div class="blog-author-img">
+            {% if article.user.image %}
+              {{ article.user.image | image_url: width: 100 | image_tag: alt: article.author }}
+            {% else %}
+              {% if article.image %}
+                {{ article.image | image_url: width: 100 | image_tag: alt: article.author }}
+              {% else %}
+                <div class="author-placeholder">{{ article.author | slice: 0 }}</div>
+              {% endif %}
+            {% endif %}
+          </div>
+          <div class="blog-author-content">
+            <p class="blog-author-title">Author</p>
+            <h4 class="h4 blog-author-name">{{ article.author }}</h4>
+            <ul class="blog-author-social">
+              {% if settings.social_facebook_link != blank %}
+                <li>
+                  <a href="{{ settings.social_facebook_link }}" target="_blank">
+                    <svg width="11" height="22" viewBox="0 0 11 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.9523 3.95518H10.5V0.754086C9.59131 0.598497 8.6731 0.513579 7.75272 0.5C4.94963 0.5 3.11731 2.30077 3.11731 5.56102V8.42675H0V12.1869H3.11731V21.2768C4.41238 21.5782 5.75408 21.5743 7.04759 21.2655V21.2586C7.01642 21.2645 6.98527 21.2715 6.95223 21.2768V12.1869H9.8117L10.3557 8.42675H6.95223V5.9866C6.95223 4.95801 7.42763 3.95518 8.9523 3.95518Z" fill="#232323"></path>
+                    </svg>
+                  </a>
+                </li>
+              {% endif %}
+              {% if settings.social_instagram_link != blank %}
+                <li>
+                  <a href="{{ settings.social_instagram_link }}" target="_blank">
+                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.69 2H8.31C4.67 2 2.5 4.17 2.5 7.81V16.18C2.5 19.83 4.67 22 8.31 22H16.68C20.32 22 22.49 19.83 22.49 16.19V7.81C22.5 4.17 20.33 2 16.69 2ZM12.5 15.88C10.36 15.88 8.62 14.14 8.62 12C8.62 9.86 10.36 8.12 12.5 8.12C14.64 8.12 16.38 9.86 16.38 12C16.38 14.14 14.64 15.88 12.5 15.88ZM18.42 6.88C18.37 7 18.3 7.11 18.21 7.21C18.11 7.3 18 7.37 17.88 7.42C17.76 7.47 17.63 7.5 17.5 7.5C17.23 7.5 16.98 7.4 16.79 7.21C16.7 7.11 16.63 7 16.58 6.88C16.53 6.76 16.5 6.63 16.5 6.5C16.5 6.37 16.53 6.24 16.58 6.12C16.63 5.99 16.7 5.89 16.79 5.79C17.02 5.56 17.37 5.45 17.69 5.52C17.76 5.53 17.82 5.55 17.88 5.58C17.94 5.6 18 5.63 18.06 5.67C18.11 5.7 18.16 5.75 18.21 5.79C18.3 5.89 18.37 5.99 18.42 6.12C18.47 6.24 18.5 6.37 18.5 6.5C18.5 6.63 18.47 6.76 18.42 6.88Z" fill="#232323"></path>
+                    </svg>
+                  </a>
+                </li>
+              {% endif %}
+              <!-- Add other social links as needed -->
+            </ul>
+            <p class="blog-author-text">{{ article.summary | default: article.excerpt | truncate: 200 }}</p>
+          </div>
+        </div>
+        
+        <!-- Comments Section -->
+        {% if blog.moderated? %}
+          <div class="comment-area">
+            <h4 class="h4 comment-area-title">Post a Comment</h4>
+            <p class="comment-area-text">Your email address will not be published. Required fields are marked *</p>
+            {% form 'new_comment', article %}
+              {% if form.posted_successfully? %}
+                <p class="comment-success">Thank you for your comment! It will be published after moderation.</p>
+              {% endif %}
+              
+              {% if form.errors %}
+                <div class="comment-errors">
+                  {{ form.errors | default_errors }}
+                </div>
+              {% endif %}
+              
+              <textarea name="comment[body]" id="comment_body" placeholder="Comment *" rows="6" cols="80" required>{{ form.body }}</textarea>
+              
+              <div class="comment-input-wrap">
+                <input type="text" name="comment[author]" placeholder="Name *" value="{{ form.author }}" required>
+                <input type="email" name="comment[email]" placeholder="Email *" value="{{ form.email }}" required>
+                <input type="url" name="comment[url]" placeholder="Website" value="{{ form.url }}">
+              </div>
+              
+              <button type="submit" class="btn secondary-btn">Post Comment <span></span></button>
+            {% endform %}
+          </div>
+        {% endif %}
+      </div>
+      
+      <!-- Sidebar -->
+      <div class="article-content-right">
+        <!-- Categories -->
+        <div class="blog-link-area">
+          <h4 class="h4 blog-link-area-title">Categories</h4>
+          <ul class="blog-links">
+            {% for tag in blog.all_tags limit: 10 %}
+              <li><a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <!-- Search -->
+        <div class="blog-search">
+          <form action="{{ blog.url }}" method="get" class="blog-search-form">
+            <div class="blog-search-filed">
+              <input type="text" name="q" placeholder="Search" value="{{ search.terms }}">
+              <button type="submit" class="blog-search-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#232323" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M22 22L20 20" stroke="#232323" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+        
+        <!-- Latest Posts -->
+        <div class="blog-list">
+          <h4 class="h4 blog-list-title">Latest Posts</h4>
+          <div class="blog-list-items">
+            {% for article in blog.articles limit: 4 %}
+             
+                <div class="blog-list-item">
+                  <a href="{{ article.url }}" class="blog-list-item-img">
+                    {% if article.image %}
+                      {{ article.image | image_url: width: 100 | image_tag: alt: article.image.alt }}
+                    {% else %}
+                      <div class="blog-placeholder">{{ article.title | slice: 0 }}</div>
+                    {% endif %}
+                  </a>
+                  <div class="blog-list-item-content">
+                    <a href="{{ article.url }}" class="h5 blog-list-item-title">{{ article.title }}</a>
+                    <p class="blog-list-item-date">{{ article.published_at | date: '%B %d, %Y' }}</p>
+                  </div>
+                </div>
+           
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function shareArticle() {
+  if (navigator.share) {
+    navigator.share({
+      title: '{{ article.title | escape }}',
+      text: '{{ article.summary | default: article.excerpt | strip_html | truncate: 100 | escape }}',
+      url: '{{ shop.url }}{{ article.url }}'
+    });
+  } else {
+    // Fallback for browsers that don't support Web Share API
+    const url = '{{ shop.url }}{{ article.url }}';
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Article URL copied to clipboard!');
+    });
+  }
+}
+</script>
+
+<style>
+.author-placeholder, .blog-placeholder {
+  width: 100px;
+  height: 100px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #666;
+  border-radius: 4px;
+}
+
+.comment-success {
+  color: #28a745;
+  background: #d4edda;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.comment-errors {
+  color: #dc3545;
+  background: #f8d7da;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.blog-search-form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-search-filed {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.blog-search-filed input:focus{
+    outline: none;
+}
+</style>
