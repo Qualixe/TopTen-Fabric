@@ -65,10 +65,22 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "blog_page_9MftbL": {
+      "type": "blog-page",
+      "name": "Blogs-page",
+      "settings": {
+        "heading": "From the Journal",
+        "sub_heading": "Discover Stories, Ideas, and Insights That Inspire Curiosity and Creativity",
+        "blog": "news",
+        "btn_text": "View More",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "common_page_banner_rrc649",
-    "main"
+    "main",
+    "blog_page_9MftbL"
   ]
 }
