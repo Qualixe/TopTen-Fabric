@@ -46,6 +46,7 @@
       ],
       "name": "Icon Item Section",
       "settings": {
+        "contact_icon": false,
         "color_scheme": ""
       }
     },
@@ -80,7 +81,11 @@
             "text": "",
             "phone": "phone:1-833-428-8824",
             "email": "Email:info@bdcloth.com",
-            "social": true
+            "social": true,
+            "social_facebook_link": "https://www.facebook.com/toptenfabrics/",
+            "social_youtube_link": "",
+            "social_instagram_link": "",
+            "social_twitter_link": ""
           }
         }
       },
