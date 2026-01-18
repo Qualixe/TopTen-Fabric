@@ -13,26 +13,13 @@
                       {{ image | image_url: width: 2000, height: 2000 | image_tag: alt: 'collection-img' }}
 
                       {% comment %} Show overlay only for the first image {% endcomment %}
-                      {% if forloop.first %}
+                      {% assign overlay = image.metafields.custom.style_spotlight %}
+                      {% if forloop.first and overlay != blank %}
                         <div class="overlay">
                           <div class="overlay-content">
                             <p class="overlay-content-title">Style Spotlight</p>
                             <ul class="overlay-content-list">
-                              <li>
-                                <p><strong>Fit :</strong> Oversized Fit</p>
-                              </li>
-                              <li>
-                                <p><strong>Collar :</strong> Crew</p>
-                              </li>
-                              <li>
-                                <p><strong>Pattern :</strong> Graphic Print</p>
-                              </li>
-                              <li>
-                                <p><strong>Sleeve Length :</strong> Half Sleeve</p>
-                              </li>
-                              <li>
-                                <p><strong>Color :</strong> Black</p>
-                              </li>
+                              {{ overlay }}
                             </ul>
                           </div>
                         </div>
