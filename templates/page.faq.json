@@ -69,6 +69,13 @@
     "faq_tQBLd6": {
       "type": "Faq",
       "blocks": {
+        "faq_item_RrnwNf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How can I place an order with TopTen Fabrics?",
+            "answer": "<p>You can place an order through our website, social media pages, or by contacting our sales team directly. We are always happy to assist you with fabric selection and order details.</p>"
+          }
+        },
         "faq_item_tMkBn7": {
           "type": "faq_item",
           "settings": {
@@ -85,6 +92,7 @@
         }
       },
       "block_order": [
+        "faq_item_RrnwNf",
         "faq_item_tMkBn7",
         "faq_item_xeF944"
       ],
