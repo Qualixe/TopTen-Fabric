@@ -142,7 +142,7 @@
     transform: translateX(0);
 }
 
-.product-slider-img .overlay .overlay-content .overlay-content-list li p {
+.product-slider-img .overlay .overlay-content .overlay-content-list li {
     color: var(--white);
     text-transform: capitalize;
 }
