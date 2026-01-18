@@ -56,7 +56,7 @@
     },
     "related_products_zJwpz3": {
       "type": "related-products",
-      "name": "related-section",
+      "name": "Related-Products",
       "settings": {
         "heading": "similar product",
         "btn_enable": true,
