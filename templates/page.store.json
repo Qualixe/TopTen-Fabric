@@ -126,9 +126,9 @@
         "text_HVDPjH": {
           "type": "text",
           "settings": {
-            "text": "<h2>Contact us</h2>",
+            "text": "<h3>GET IN TOUCH</h3>",
             "width": "100%",
-            "max_width": "normal",
+            "max_width": "narrow",
             "alignment": "center",
             "type_preset": "rte",
             "font": "var(--font-body--family)",
