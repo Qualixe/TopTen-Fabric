@@ -2,6 +2,7 @@
 
 <div class="product-description-accordion">
   <div class="product-accordion-items">
+    {% if product.description != blank %}
     <div class="product-accordion-item">
       <div class="item-title-wrapper product-accordion-toggle-btn">
         <h6 class="item-title">Product Details</h6>
@@ -18,6 +19,7 @@
         {{ product.description }}
       </div>
     </div>
+    {% endif %}
     {% for block in accordions %}
       {% assign b = block.settings %}
       <div class="product-accordion-item">
