@@ -53,9 +53,9 @@
                     <h2 class="product-title">{{ product.title }}</h2>
 
                     <div class="product-price-wrap">
-                      <h5 class="latest-price">{{ product.price | money }}</h5>
+                      <h5 class="latest-price">{{ product.price | money_without_trailing_zeros }}</h5>
                       {% if product.compare_at_price > product.price %}
-                        <h5 class="previous-price">{{ product.compare_at_price | money }}</h5>
+                        <h5 class="previous-price">{{ product.compare_at_price | money_without_trailing_zeros}}</h5>
                       {% endif %}
                     </div>
                   </div>
