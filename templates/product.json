@@ -6,13 +6,31 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */ {
+ */
+{
   "sections": {
     "main": {
       "type": "single-product",
+      "blocks": {
+        "info_w8UXEy": {
+          "type": "info",
+          "settings": {}
+        },
+        "heading_pNaxaA": {
+          "type": "heading",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "info_w8UXEy",
+        "heading_pNaxaA"
+      ],
+      "settings": {
+        "color_scheme": ""
+      }
     }
   },
   "order": [
-    "main",
+    "main"
   ]
 }
