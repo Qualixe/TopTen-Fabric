@@ -32,10 +32,9 @@
       ],
       "settings": {
         "logo": "shopify://shop_images/Top_Ten_Logo.png",
-        "moible_number": "01708156699",
+        "moible_number": "+8801708156699",
         "menu": "main-menu",
-        "color_scheme": "scheme-1",
-        "enable_sticky_header": true
+        "color_scheme": "scheme-1"
       }
     }
   },
