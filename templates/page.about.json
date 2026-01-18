@@ -76,11 +76,23 @@
         "layout": "layout1",
         "color_scheme": ""
       }
+    },
+    "image_with_text_f477k9": {
+      "type": "image-with-Text",
+      "name": "Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/img-text-img2.jpg",
+        "title": "WHY CHOOSE US?",
+        "text": "Our product line includes a wide variety of T-Shirt, Polo Shirt, Pants, Panjabi, Kabli, Salwar Kamiz, Ladies Three-Piece, Saree,  Kurti, Tops, Laggings, Undergarments, Nightwear, Grooming and Wellness, Fragrance, Gent’s and Lady’s Footwear, Bags, Jewelry, Baby Care, Kids Items, Food, and Beverage Items, Watches, Sunglasses, Babies and Kids Toys and many more.\n<br> <br> We are adding newer and newer items in our product line to meet the demand of the customers.",
+        "layout": "layout2",
+        "color_scheme": "scheme-2"
+      }
     }
   },
   "order": [
     "common_page_banner_9rgfCb",
     "main",
-    "image_with_text_VnV7G6"
+    "image_with_text_VnV7G6",
+    "image_with_text_f477k9"
   ]
 }
