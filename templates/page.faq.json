@@ -69,6 +69,13 @@
     "faq_tQBLd6": {
       "type": "Faq",
       "blocks": {
+        "faq_item_8ymwUR": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you provide fabric samples before purchase?",
+            "answer": "<p>Yes, fabric samples are available upon request, allowing you to inspect the quality, texture, and color before placing a full order.<br/><br/></p>"
+          }
+        },
         "faq_item_RrnwNf": {
           "type": "faq_item",
           "settings": {
@@ -92,6 +99,7 @@
         }
       },
       "block_order": [
+        "faq_item_8ymwUR",
         "faq_item_RrnwNf",
         "faq_item_tMkBn7",
         "faq_item_xeF944"
