@@ -59,9 +59,11 @@
               </ul>
 
               {% if b.social %}
-                <ul class="footer-icons">
-                  {% render 'social', block: block %}
-                </ul>
+                <div class="footer-icons">
+                  <ul class="social-icons">
+                    {% render 'social', block: block %}
+                  </ul>
+                </div>
               {% endif %}
             </div>
         {% endcase %}
