@@ -241,15 +241,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Update price if price element exists
-            const priceElement = document.querySelector('.latest-price');
-            if (priceElement && matchedVariant.price) {
-                // Format price (assuming price is in cents)
-                const formattedPrice = (matchedVariant.price / 100).toFixed(2);
-                
-                const realprice = `tk${formattedPrice}`;
-                realprice.replace('.00','');
-                priceElement.textContent =realprice;
-            }
+const priceElement = document.querySelector('.latest-price');
+
+if (priceElement && matchedVariant.price) {
+    const price = matchedVariant.price / 100;
+    const realprice = Number.isInteger(price)
+        ? `tk${price}`
+        : `tk${price.toFixed(2)}`;
+
+    priceElement.textContent = realprice;
+}
+
 
             // Update button
             const addButton = document.querySelector('button[name="add"]');
