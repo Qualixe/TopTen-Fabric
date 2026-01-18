@@ -13,8 +13,8 @@
       "type": "common-page-banner",
       "name": "Common Page Banner",
       "settings": {
-        "image": "shopify://shop_images/faq-page-banner-bg.jpg",
-        "title": "FAq",
+        "image": "shopify://shop_images/blog-page-banner-bg.jpg",
+        "title": "Blog",
         "color_scheme": ""
       }
     },
@@ -65,66 +65,10 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
-    },
-    "faq_tQBLd6": {
-      "type": "Faq",
-      "blocks": {
-        "faq_item_RrnwNf": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How can I place an order with TopTen Fabrics?",
-            "answer": "<p>You can place an order through our website, social media pages, or by contacting our sales team directly. We are always happy to assist you with fabric selection and order details.</p>"
-          }
-        },
-        "faq_item_8ymwUR": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Do you provide fabric samples before purchase?",
-            "answer": "<p>Yes, fabric samples are available upon request, allowing you to inspect the quality, texture, and color before placing a full order.<br/><br/></p>"
-          }
-        },
-        "faq_item_FDjVGB": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What are your delivery and shipping options?",
-            "answer": "<p>We offer reliable nationwide delivery with secure packaging. Delivery time and shipping costs may vary depending on your location and order size.<br/><br/></p>"
-          }
-        },
-        "faq_item_tMkBn7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Do you sell fabrics in retail and wholesale quantities?",
-            "answer": "<p>Yes, we cater to both retail customers and wholesale buyers. Bulk pricing and special rates are available for large orders—please contact our team for wholesale inquiries.</p>"
-          }
-        },
-        "faq_item_xeF944": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What types of fabrics does TopTen Fabrics offer?",
-            "answer": "<p>TopTen Fabrics offers a wide range of high-quality fabrics, including cotton, linen, denim, rayon, polyester, blends, and seasonal specialty fabrics to meet both retail and wholesale needs.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_item_RrnwNf",
-        "faq_item_8ymwUR",
-        "faq_item_FDjVGB",
-        "faq_item_tMkBn7",
-        "faq_item_xeF944"
-      ],
-      "name": "FAQ Section",
-      "settings": {
-        "title": "Frequently asked questions",
-        "subtitle": "Find clear answers to your most common questions.\nWe’re here to help you choose the right fabric with confidence.",
-        "button_text": "Contact us",
-        "button_link": "shopify://pages/contact",
-        "color_scheme": ""
-      }
     }
   },
   "order": [
     "common_page_banner_rrc649",
-    "main",
-    "faq_tQBLd6"
+    "main"
   ]
 }
