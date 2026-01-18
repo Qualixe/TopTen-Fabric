@@ -12,7 +12,7 @@
                     {% if image != blank %}
                       {{ image | image_url: width: 2000, height: 2000 | image_tag: alt: 'collection-img' }}
                     {% endif %}
-                    {% if image[0] != blank %}
+                    {% if image[0] %}
                       <div class="overlay">
                         <div class="overlay-content">
                           <p class="overlay-content-title">Style Spotlight</p>
