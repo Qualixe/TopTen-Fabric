@@ -12,18 +12,36 @@
     "main": {
       "type": "single-product",
       "blocks": {
+        "heading_pNaxaA": {
+          "type": "heading",
+          "settings": {}
+        },
+        "price_KKE4VH": {
+          "type": "price",
+          "settings": {}
+        },
         "info_w8UXEy": {
           "type": "info",
           "settings": {}
         },
-        "heading_pNaxaA": {
-          "type": "heading",
+        "variant_kaTJy6": {
+          "type": "variant",
           "settings": {}
+        },
+        "button_xDq4tj": {
+          "type": "button",
+          "settings": {
+            "button": "Add To Cart",
+            "enable_buynow": false
+          }
         }
       },
       "block_order": [
+        "heading_pNaxaA",
+        "price_KKE4VH",
         "info_w8UXEy",
-        "heading_pNaxaA"
+        "variant_kaTJy6",
+        "button_xDq4tj"
       ],
       "settings": {
         "color_scheme": ""
