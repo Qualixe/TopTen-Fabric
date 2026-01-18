@@ -72,8 +72,8 @@
       "settings": {
         "title": "Frequently asked questions",
         "subtitle": "Find clear answers to your most common questions.\nWe’re here to help you choose the right fabric with confidence.",
-        "button_text": "Shop Now",
-        "button_link": "",
+        "button_text": "Contact us",
+        "button_link": "shopify://pages/contact",
         "color_scheme": ""
       }
     }
