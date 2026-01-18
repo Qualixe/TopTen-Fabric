@@ -65,10 +65,22 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "image_with_text_VnV7G6": {
+      "type": "image-with-Text",
+      "name": "Image with Text",
+      "settings": {
+        "image": "shopify://shop_images/img-text-img1.jpg",
+        "title": "Who we are?",
+        "text": "",
+        "layout": "layout1",
+        "color_scheme": ""
+      }
     }
   },
   "order": [
     "common_page_banner_9rgfCb",
-    "main"
+    "main",
+    "image_with_text_VnV7G6"
   ]
 }
