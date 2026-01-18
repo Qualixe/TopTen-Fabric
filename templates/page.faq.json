@@ -69,6 +69,13 @@
     "faq_tQBLd6": {
       "type": "Faq",
       "blocks": {
+        "faq_item_FDjVGB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What are your delivery and shipping options?",
+            "answer": "<p>We offer reliable nationwide delivery with secure packaging. Delivery time and shipping costs may vary depending on your location and order size.<br/><br/></p>"
+          }
+        },
         "faq_item_8ymwUR": {
           "type": "faq_item",
           "settings": {
@@ -99,6 +106,7 @@
         }
       },
       "block_order": [
+        "faq_item_FDjVGB",
         "faq_item_8ymwUR",
         "faq_item_RrnwNf",
         "faq_item_tMkBn7",
