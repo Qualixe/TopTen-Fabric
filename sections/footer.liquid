@@ -60,7 +60,7 @@
 
               {% if b.social %}
                 <ul class="footer-icons">
-                  {% render 'social' %}
+                  {% render 'social', block: block %}
                 </ul>
               {% endif %}
             </div>
@@ -195,6 +195,26 @@
           "id": "social",
           "label": "Show Social Icons",
           "default": true
+        },
+        {
+          "type": "url",
+          "id": "social_facebook_link",
+          "label": "Facebook Link"
+        },
+        {
+          "type": "url",
+          "id": "social_youtube_link",
+          "label": "Youtube Link"
+        },
+        {
+          "type": "url",
+          "id": "social_instagram_link",
+          "label": "Instagram Link"
+        },
+        {
+          "type": "url",
+          "id": "social_twitter_link",
+          "label": "Twitter Link"
         }
       ]
     }
