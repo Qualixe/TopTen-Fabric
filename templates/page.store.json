@@ -98,14 +98,14 @@
         "store_item_bFKnpe": {
           "type": "store_item",
           "settings": {
-            "map_iframe": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d2734.8780408382645!2d90.416401!3d23.7172!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQzJzAxLjkiTiA5MMKwMjQnNTkuMCJF!5e1!3m2!1sen!2sus!4v1765798717753!5m2!1sen!2sus\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+            "map_iframe": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4330.919519540602!2d90.41471405595058!3d23.779684112863286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7002bc889ed%3A0xb7a89674671a2894!2sTop%20Ten%20Fabrics%20%26%20Tailors%20Ltd.%20Gulshan%201!5e1!3m2!1sen!2sbd!4v1768737734941!5m2!1sen!2sbd\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
             "title": "Top Ten Fabrics Gulshan -1 Circle",
-            "address": "Shah Smrity Market, Dhaka, Bangladesh",
-            "phone1": "01933-992311",
+            "address": "44 Gulshan Avenue South-West Circle, Gulshan-1, Dhaka-1212,",
+            "phone1": "Fabrics: 01951 144260, Tailors: 01951 144266",
             "phone2": "",
             "email": "",
             "website": "",
-            "timing": "Monday – Thursday (09:00 – 19:00)\nFriday (09:00 – 21:00)\nSaturday – Sunday (09:00 – 17:00)"
+            "timing": "Off day: No"
           }
         }
       },
