@@ -79,7 +79,7 @@
         "btn_enable": true,
         "btn_text": "view all",
         "link": "shopify://collections",
-        "color_scheme": ""
+        "color_scheme": "scheme-1"
       }
     }
   },
