@@ -12,6 +12,30 @@
                     {% if image != blank %}
                       {{ image | image_url: width: 2000, height: 2000 | image_tag: alt: 'collection-img' }}
                     {% endif %}
+                    {% if image[0] != blank %}
+                      <div class="overlay">
+                        <div class="overlay-content">
+                          <p class="overlay-content-title">Style Spotlight</p>
+                          <ul class="overlay-content-list">
+                            <li>
+                              <p><strong>Fit :</strong> Oversized Fit</p>
+                            </li>
+                            <li>
+                              <p><strong>Collar :</strong> Crew</p>
+                            </li>
+                            <li>
+                              <p><strong>Pattern :</strong> Graphic Print</p>
+                            </li>
+                            <li>
+                              <p><strong>Sleeve Length :</strong> Half Sleeve</p>
+                            </li>
+                            <li>
+                              <p><strong>Color :</strong> Black</p>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    {% endif %}
                   </div>
                 </div>
               {% endfor %}
