@@ -145,6 +145,8 @@
 .product-slider-img .overlay .overlay-content .overlay-content-list li {
     color: var(--white);
     text-transform: capitalize;
+    font-size: 16px;
+    padding: 5px;
 }
 
 .product-slider-thumb .swiper-slide {
